@@ -102,5 +102,7 @@
       }
     }
   },
-  "defaultProject": "PersonStatisticsApp"
+  "cli": {
+    "analytics": "497bdc4d-a8d5-4e57-ac11-960d00266f21"
+  }
 }
