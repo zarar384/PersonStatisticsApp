@@ -7,5 +7,11 @@ import { Person } from 'src/app/model/person.model';
   styleUrls: ['./person.component.css']
 })
 export class PersonComponent {
-  person: Person | undefined 
+  person: Person | undefined;
+  isAdvance: boolean = false;
+  
+  withAdvance(value: boolean){
+    this.isAdvance = this.isAdvance == false? true : false;
+  }
+
 }
