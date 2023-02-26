@@ -8,177 +8,18 @@
       "sex": "female"
     },
     {
-      "name": "s",
-      "phone": "",
-      "mail": "",
-      "sex": "",
+      "name": "Vova",
+      "phone": 53536,
+      "mail": "fdf",
+      "sex": "eblan",
       "id": 2
     },
     {
-      "name": "srq",
-      "phone": 242,
-      "mail": "fdf",
-      "sex": "",
+      "name": "Katya",
+      "phone": 3636,
+      "mail": "adsaf",
+      "sex": "female",
       "id": 3
-    },
-    {
-      "name": "srq",
-      "phone": 242,
-      "mail": "fdf",
-      "sex": "",
-      "id": 4
-    },
-    {
-      "name": "",
-      "phone": "",
-      "mail": "",
-      "sex": "",
-      "id": 5
-    },
-    {
-      "name": "",
-      "phone": "",
-      "mail": "",
-      "sex": "",
-      "id": 6
-    },
-    {
-      "name": "",
-      "phone": "",
-      "mail": "",
-      "sex": "",
-      "id": 7
-    },
-    {
-      "name": "",
-      "phone": "",
-      "mail": "",
-      "sex": "",
-      "id": 8
-    },
-    {
-      "name": "eqeq",
-      "phone": 313,
-      "mail": "ew",
-      "sex": "eblan",
-      "id": 9
-    },
-    {
-      "name": "eqeq",
-      "phone": 313,
-      "mail": "ew",
-      "sex": "eblan",
-      "id": 10
-    },
-    {
-      "name": "sf",
-      "phone": 3,
-      "mail": "dsd",
-      "sex": "female",
-      "id": 11
-    },
-    {
-      "name": "sfdsd",
-      "phone": 3,
-      "mail": "dsd",
-      "sex": "female",
-      "id": 12
-    },
-    {
-      "name": "sfdsd",
-      "phone": 3,
-      "mail": "dsd",
-      "sex": "female",
-      "id": 13
-    },
-    {
-      "name": "sfdsd",
-      "phone": 3,
-      "mail": "dsd",
-      "sex": "male",
-      "id": 14
-    },
-    {
-      "name": "das",
-      "phone": 42,
-      "mail": "5rew",
-      "sex": "female",
-      "id": 15
-    },
-    {
-      "name": "das",
-      "phone": 42,
-      "mail": "5rew",
-      "sex": "female",
-      "id": 16
-    },
-    {
-      "name": "rqr",
-      "phone": 245,
-      "mail": "fsf",
-      "sex": "female",
-      "id": 17
-    },
-    {
-      "name": "rqr",
-      "phone": 245,
-      "mail": "fsf",
-      "sex": "female",
-      "id": 18
-    },
-    {
-      "name": "rqr",
-      "phone": 245,
-      "mail": "fsf",
-      "sex": "female",
-      "id": 19
-    },
-    {
-      "name": "wr",
-      "phone": 242,
-      "mail": "rw",
-      "sex": "female",
-      "id": 20
-    },
-    {
-      "name": "rw",
-      "phone": 42,
-      "mail": "rw",
-      "sex": "female",
-      "id": 21
-    },
-    {
-      "name": "ds",
-      "phone": 3e+24,
-      "mail": "wrw",
-      "sex": "",
-      "id": 22
-    },
-    {
-      "name": "",
-      "phone": "",
-      "mail": "",
-      "sex": "",
-      "id": 23
-    },
-    {
-      "name": "Vova",
-      "phone": 25,
-      "mail": "wrw",
-      "id": 24
-    },
-    {
-      "name": "fs",
-      "phone": 2,
-      "mail": "rw",
-      "id": 25
-    },
-    {
-      "name": "sfs",
-      "phone": 252,
-      "mail": "rwr",
-      "sex": "eblan",
-      "id": 26
     }
   ]
 }

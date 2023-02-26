@@ -9,7 +9,7 @@
     <div class="row" >
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Person</h4>
-        <form class="needs-validation" [formGroup]="registerForm" (ngSubmit)="registerFn()">
+        <form class="needs-validation" [formGroup]="form" (ngSubmit)="registerFn()">
           <button class="w-100 btn btn-primary btn-lg" type="submit">Send</button>
           <div class="row g-3">
             <div class="col-sm-6">
@@ -28,19 +28,19 @@
           <div class="my-3">
             <label for="sex" class="form-label">Sex</label>
             <div class="form-check">
-              <input id="sexCheck" name="sexCheck" type="radio" class="form-check-input"
-              (click)="clickCorrectRadio($event)" formControlName="sex" value="male">
+              <input type="radio" class="form-check-input"
+              formControlName="sex" value="male">
               <label class="form-check-label" for="maleCheck" >Male</label>
             </div>
             <div class="form-check">
-              <input id="sexCheck" name="sexCheck" type="radio" class="form-check-input"
-              (click)="clickCorrectRadio($event)" formControlName="sex" value="female">
+              <input type="radio" class="form-check-input"
+              formControlName="sex" value="female">
               <label class="form-check-label" for="femaleCheck" >Female</label>
             </div>
             <div class="form-check">
-              <input id="sexCheck" name="sexCheck" type="radio" class="form-check-input"
-              (click)="clickOtherRadio($event)" formControlName="sex" value="eblan">
-              <label class="form-check-label" for="otherCheck"> {{otherCheck}}</label>
+              <input type="radio" class="form-check-input"
+              formControlName="sex" value="eblan" (click)="clickCorrectRadio($event)">
+              <label class="form-check-label" for="otherCheck">{{this.otherCheck}}</label>
             </div>
           </div>
           <hr class="my-4">
