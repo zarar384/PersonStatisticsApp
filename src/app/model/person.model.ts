@@ -1,9 +1,10 @@
 import { Advance } from "./advance.model";
 
-export interface Person {
+export class Person {
+    name: string;
     mail: string;
     phone: number;
-    sex: boolean;
+    sex: string;
     advadce: Advance;
     dr: Date; //date registration
 }

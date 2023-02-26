@@ -1,4 +1,4 @@
-export interface Advance {
+export class Advance {
   country: string;
   job: string;
   family: boolean;
