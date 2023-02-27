@@ -6,12 +6,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdvanceComponent } from './regForm/advance/advance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonComponent,
     AdvanceComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
