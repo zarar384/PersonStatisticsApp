@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Person } from 'src/app/model/person.model';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -32,8 +37,8 @@ export class PersonComponent implements OnInit {
     name: new FormControl('', [Validators.required, Validators.maxLength(32)]),
     phone: new FormControl('', [
       Validators.required,
-      Validators.minLength(10),
-      Validators.maxLength(10),
+      Validators.minLength(5),
+      Validators.maxLength(15),
       Validators.pattern(this.integreRegex),
     ]),
     email: new FormControl('', [
@@ -49,16 +54,23 @@ export class PersonComponent implements OnInit {
   });
 
   registerFn() {
-    console.log(this.form.value);
-    this.person.name = this.form.value.name as string;
-    this.person.phone = this.form.value.phone as unknown as number;
-    this.person.mail = this.form.value.email as string;
-    this.person.sex = this.form.value.sex as string;
+    if (this.form.status !== 'INVALID') {
+      console.log(this.form.value);
 
-    this.apiHit.postData(this.person).subscribe((response: any) => {
-      console.log('Data inserted successfully');
-      this.ngOnInit();
-    });
+      this.person.name = this.form.value.name as string;
+      this.person.phone = this.form.value.phone as unknown as number;
+      this.person.mail = this.form.value.email as string;
+      this.person.sex = this.form.value.sex as string;
+
+      this.apiHit.postData(this.person).subscribe((response: any) => {
+        console.log('Data inserted successfully');
+        this.ngOnInit();
+      });
+    }
+  }
+
+  getControl(name: any): AbstractControl | null {
+    return this.form.get(name);
   }
 
   withAdvance(value: boolean) {

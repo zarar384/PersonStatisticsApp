@@ -8,20 +8,30 @@
     <div class="row">
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Person</h4>
-        <form class="needs-validation w-50" [formGroup]="form" (ngSubmit)="registerFn()">
+        <form class="needs-validation w-50" [formGroup]="form">
           <div class="row g-3">
             <div class="col-12">
               <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" placeholder="First Name" formControlName="name">
+              <input type="text" class="form-control" id="name" placeholder="Bohdan" formControlName="name">
+              <div>
+                <small class="text-danger" *ngIf="getControl('name')?.errors?.['required']">Field Name is required</small>
+                <small class="text-danger" *ngIf="getControl('name')?.errors?.['maxLength']">Field Name is required</small>
+              </div>
             </div>
             <div class="col-12">
               <label for="phone" class="form-label">Phone number</label>
               <input type="number" class="form-control number" id="phone" placeholder="877236215"
                 formControlName="phone">
+              <div>
+                <small class="text-danger" *ngIf="getControl('phone')?.errors?.['pattern']">Please enter a valid mobile number</small>
+              </div>
             </div>
             <div class="col-12">
               <label for="email" class="form-label">Email</label>
               <input type="email" class="form-control" id="email" placeholder="you@example.com" formControlName="email">
+              <div>
+                <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid mail. Example: mybigpenis@gmail.com</small>
+              </div>
             </div>
           </div>
           <div class="my-3">
@@ -38,6 +48,9 @@
               <input type="radio" class="form-check-input" formControlName="sex" value="eblan"
                 (click)="clickCorrectRadio($event)">
               <label class="form-check-label" for="otherCheck">{{this.otherCheck}}</label>
+              <div>
+                <small class="text-danger" *ngIf="this.form.get('sex')?.errors?.['otherSelected']">Bro...</small>
+              </div>
             </div>
           </div>
           <hr class="my-4">
@@ -51,7 +64,10 @@
       </div>
     </div>
   </main>
-  <button class="w-20 btn btn-primary btn-lg btn-block" type="submit">Send</button>
+  <div>
+    <small class="text-danger" *ngIf="this.form.status === 'INVALID'">Please fill in all required fields</small>
+  </div>
+  <button class="w-20 btn btn-primary btn-lg btn-block" type="submit" (click)="registerFn()">Send</button>
   <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">© 2022-2017 اسم الشركة</p>
             <ul class="list-inline">
