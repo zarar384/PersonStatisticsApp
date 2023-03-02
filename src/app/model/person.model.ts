@@ -1,10 +1,11 @@
-import { Advance } from "./advance.model";
+import { Advance } from './advance.model';
 
 export class Person {
-    name: string;
-    mail: string;
-    phone: number;
-    sex: string;
-    advadce: Advance;
-    dr: Date; //date registration
+  id: number;
+  name: string;
+  mail: string;
+  phone: number;
+  sex: string;
+  advadce: Advance;
+  dr: Date; //date registration
 }
