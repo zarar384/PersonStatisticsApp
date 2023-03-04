@@ -34,6 +34,13 @@
       "mail": "jirka@mail.ru",
       "sex": "male",
       "id": 5
+    },
+    {
+      "name": "Kek",
+      "phone": 35356363,
+      "mail": "cros@mail.ru",
+      "sex": "male",
+      "id": 6
     }
   ]
 }
