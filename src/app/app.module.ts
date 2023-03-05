@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { TablePersonComponent } from './regForm/table-person/table-person.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatDialogModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

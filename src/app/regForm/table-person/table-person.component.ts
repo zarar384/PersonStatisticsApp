@@ -3,6 +3,7 @@ import { Person } from 'src/app/model/person.model';
 import { ApiService } from 'src/app/services/api.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PersonComponent } from '../person/person.component';
+import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 
 @Component({
   selector: 'app-table-person',
@@ -11,7 +12,8 @@ import { PersonComponent } from '../person/person.component';
 })
 export class TablePersonComponent {
   persons: Person[] = [];
-
+  dataSource: MatTableDataSource<Person> = new MatTableDataSource<Person>([]);
+  displayedColumns: string[] = ['id', 'name', 'mail', 'phone', 'sex'];
   constructor(private apiHit: ApiService, private dilog: MatDialog) {}
 
   ngOnInit(): void {
@@ -20,7 +22,7 @@ export class TablePersonComponent {
 
   loadPersons() {
     this.apiHit.getData().subscribe((response: any) => {
-      this.persons = response;
+      this.dataSource.data = response;
       console.log(this.persons);
     });
   }

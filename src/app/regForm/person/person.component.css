@@ -2,3 +2,8 @@ input.number::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0; 
 }
+
+.container{ 
+    border-radius: 50px; 
+    padding: 5%;
+}
