@@ -1,13 +1,15 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Person } from '../model/person.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiService {
   url = 'http://localhost:3000/';
-  person: Person[] = [];
+  status: string;
+  errorMessage: any;
 
   constructor(private http: HttpClient) {}
 
@@ -19,5 +21,9 @@ export class ApiService {
     var personJsonList = this.http.get(this.url + 'person');
     // this.person.push(personJsonList);
     return personJsonList;
+  }
+
+  delData(id: number) {
+    return this.http.delete(this.url + 'person/' + id);
   }
 }

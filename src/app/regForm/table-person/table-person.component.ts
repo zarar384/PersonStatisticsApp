@@ -13,7 +13,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 export class TablePersonComponent {
   persons: Person[] = [];
   dataSource: MatTableDataSource<Person> = new MatTableDataSource<Person>([]);
-  displayedColumns: string[] = ['id', 'name', 'mail', 'phone', 'sex'];
+  displayedColumns: string[] = ['id', 'name', 'mail', 'phone', 'sex', 'delete'];
   constructor(private apiHit: ApiService, private dilog: MatDialog) {}
 
   ngOnInit(): void {
@@ -23,11 +23,27 @@ export class TablePersonComponent {
   loadPersons() {
     this.apiHit.getData().subscribe((response: any) => {
       this.dataSource.data = response;
-      console.log(this.persons);
+      console.log(response);
     });
   }
 
   openDilog() {
-    this.dilog.open(PersonComponent);
+    this.dilog
+      .open(PersonComponent)
+      .afterClosed()
+      .subscribe(() => {
+        this.loadPersons();
+      });
+  }
+
+  deletePerson(id: number) {
+    this.apiHit.delData(id).subscribe({
+      next: () => {
+        this.loadPersons();
+      },
+      error: (error) => {
+        console.error('There was an error!', error);
+      },
+    });
   }
 }
