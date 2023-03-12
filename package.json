@@ -25,8 +25,11 @@
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.3",
+    "readable-stream": "^3.6.2",
     "rxjs": "~6.6.0",
+    "stream-browserify": "^3.0.0",
     "tslib": "^2.3.0",
+    "xml2js": "^0.4.23",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
@@ -35,7 +38,8 @@
     "@angular/compiler-cli": "^15.2.0",
     "@angular/localize": "^15.2.0",
     "@types/jasmine": "~3.8.0",
-    "@types/node": "^12.11.1",
+    "@types/node": "^12.20.55",
+    "@types/xml2js": "^0.4.11",
     "jasmine-core": "~3.8.0",
     "json-server": "^0.17.2",
     "karma": "~6.3.0",
@@ -44,5 +48,10 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
     "typescript": "~4.9.5"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "timers": false
   }
 }

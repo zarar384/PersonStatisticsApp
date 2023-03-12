@@ -4,8 +4,17 @@
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": [
-      "@angular/localize"
-    ]
+      "@angular/localize",
+      "node"
+    ],
+    "paths": {
+      "timers": [
+        "node_modules/timers-browserify"
+      ],
+      "stream": [
+        "node_modules/stream-browserify"
+      ],
+    }
   },
   "files": [
     "src/main.ts",

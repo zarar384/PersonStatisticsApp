@@ -11,7 +11,7 @@
         <form class="needs-validation w-50" [formGroup]="form">
           <div class="row g-3">
             <div class="col-12">
-              <label for="name" class="form-label">Name</label>
+              <label for="name" class="form-label" setTextField='Field.Name'></label>
               <input type="text" class="form-control" id="name" placeholder="Bohdan" formControlName="name">
               <div>
                 <small class="text-danger" *ngIf="getControl('name')?.errors?.['required']">Field Name is required</small>
@@ -19,7 +19,7 @@
               </div>
             </div>
             <div class="col-12">
-              <label for="phone" class="form-label">Phone number</label>
+              <label for="phone" class="form-label" setTextField="Field.Phone"></label>
               <input type="number" class="form-control number" id="phone" placeholder="877236215"
                 formControlName="phone">
               <div>
@@ -27,7 +27,7 @@
               </div>
             </div>
             <div class="col-12">
-              <label for="email" class="form-label">Email</label>
+              <label for="email" class="form-label" setTextField="Field.Email"></label>
               <input type="email" class="form-control" id="email" placeholder="you@example.com" formControlName="email">
               <div>
                 <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid mail. Example: mybigpenis@gmail.com</small>

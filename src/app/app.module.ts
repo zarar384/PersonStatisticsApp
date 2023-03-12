@@ -12,6 +12,7 @@ import { TablePersonComponent } from './regForm/table-person/table-person.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { TextfieldChangedDirective } from './shared/textfield-changed.directive';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { MatTableModule } from '@angular/material/table';
     AdvanceComponent,
     NavComponent,
     TablePersonComponent,
+    TextfieldChangedDirective,
   ],
   imports: [
     BrowserModule,

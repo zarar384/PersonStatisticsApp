@@ -1,0 +1,11 @@
+<ru>
+    <field>
+    <value id='Field.Name'>Name</value>
+    </field>
+    <field>
+    <value id='Field.Phone'>Phone number</value>
+    </field>
+    <field>
+    <value id='Field.Email'>Email</value>
+    </field>
+</ru>
