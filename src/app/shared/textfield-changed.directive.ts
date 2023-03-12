@@ -1,25 +1,20 @@
-import { HttpClient } from '@angular/common/http';
 import { Directive, ElementRef, Input } from '@angular/core';
-import * as fs from 'fs';
 import { ApiService } from '../services/api.service';
 import { ITranslate } from '../interfaces/ITranslate';
 import * as xml2js from 'xml2js';
-import { stringify } from 'querystring';
 
 @Directive({
   selector: '[setTextField]',
 })
 export class TextfieldChangedDirective {
   @Input() setTextField: string;
-  @Input() label: string;
-  @Input() value: string;
 
   constructor(private api: ApiService, private el: ElementRef) {}
 
   ngOnInit() {
     this.api.loadXML().subscribe((data) => {
       this.parseXML(data, this.setTextField).then((data) => {
-        if (data != null || data === undefined) {
+        if (data != null || data != undefined) {
           (this.el.nativeElement as HTMLElement).textContent = data as string;
         }
       });

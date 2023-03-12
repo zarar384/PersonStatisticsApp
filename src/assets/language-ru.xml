@@ -8,4 +8,25 @@
     <field>
     <value id='Field.Email'>Email</value>
     </field>
+    <field>
+    <value id='Field.Other'>Other</value>
+    </field>
+    <field>
+    <value id='Field.Eblan'>Elban</value>
+    </field>
+    <field>
+    <value id='Field.Male'>Male</value>
+    </field>
+    <field>
+    <value id='Field.Female'>Female</value>
+    </field>
+    <field>
+    <value id='Field.Send'>Send</value>
+    </field>
+    <field>
+    <value id='Field.ID'>ID</value>
+    </field>
+    <field>
+    <value id='Field.Sex'>Sex</value>
+    </field>
 </ru>

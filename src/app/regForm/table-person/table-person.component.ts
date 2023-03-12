@@ -18,6 +18,7 @@ export class TablePersonComponent {
 
   ngOnInit(): void {
     this.loadPersons();
+    
   }
 
   loadPersons() {

@@ -35,14 +35,14 @@
             </div>
           </div>
           <div class="my-3">
-            <label for="sex" class="form-label">Sex</label>
+            <label for="sex" class="form-label" setTextField="Field.Sex"></label>
             <div class="form-check">
               <input type="radio" class="form-check-input" formControlName="sex" value="male">
-              <label class="form-check-label" for="maleCheck">Male</label>
+              <label class="form-check-label" for="maleCheck" setTextField="Field.Male"></label>
             </div>
             <div class="form-check">
               <input type="radio" class="form-check-input" formControlName="sex" value="female">
-              <label class="form-check-label" for="femaleCheck">Female</label>
+              <label class="form-check-label" for="femaleCheck" setTextField="Field.Female"></label>
             </div>
             <div class="form-check">
               <input type="radio" class="form-check-input" formControlName="sex" value="eblan"
@@ -67,7 +67,7 @@
   <div>
     <small class="text-danger" *ngIf="this.form.status === 'INVALID'">Please fill in all required fields</small>
   </div>
-  <button class="w-20 btn btn-primary btn-lg btn-block" type="submit" (click)="registerFn()">Send</button>
+  <button class="w-20 btn btn-primary btn-lg btn-block" type="submit" (click)="registerFn()" setTextField="Field.Send"></button>
   <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">© 2022-2017 اسم الشركة</p>
             <ul class="list-inline">
