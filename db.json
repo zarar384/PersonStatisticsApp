@@ -42,5 +42,106 @@
       "sex": "male",
       "id": 6
     }
+  ],
+  "race": [
+    {
+      "identifier": 1,
+      "name": "Elf",
+      "description": "Tall and graceful applications with magical powers",
+      "strength": 5,
+      "dexterity": 10,
+      "intelligence": 8
+    },
+    {
+      "identifier": 2,
+      "name": "Gnome",
+      "description": "Dwarfs, blacksmiths and mechanics",
+      "strength": 7,
+      "dexterity": 5,
+      "intelligence": 10
+    },
+    {
+      "identifier": 3,
+      "name": "Orc",
+      "description": "Large and perfect, perfect for a warrior role",
+      "strength": 10,
+      "dexterity": 5,
+      "intelligence": 3
+    }
+  ],
+  "weapon": [
+    {
+      "id": 1,
+      "name": "Luk",
+      "description": "A long and flexible bow capable of shooting farther than any other weapon",
+      "damage": 8,
+      "damage_type": "piercing",
+      "race_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Hammer",
+      "description": "A heavy and massive hammer that can deal a powerful blow",
+      "damage": 12,
+      "damage_type": "bludgeoning",
+      "race_id": 3
+    },
+    {
+      "id": 3,
+      "name": "Dagger",
+      "description": "Sharp and light dagger, perfect for stealthy stabbing the enemy in the back",
+      "damage": 6,
+      "damage_type": "cutting",
+      "race_id": 1
+    }
+  ],
+  "armor": [
+    {
+      "id": 1,
+      "name": "Leather armor",
+      "description": "Light armor that allows you to move faster",
+      "armor": 5,
+      "armor_type": "leather",
+      "race_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Plate armor",
+      "description": "Heavy armor made of many metal plates",
+      "armor": 12,
+      "armor_type": "plate",
+      "race_id": 3
+    },
+    {
+      "id": 3,
+      "name": "Kolchuga",
+      "description": "Medium armor of linked rings",
+      "armor": 8,
+      "armor_type": "mail",
+      "race_id": 2
+    }
+  ],
+  "ability": [
+    {
+      "id": 1,
+      "name": "Fireball",
+      "description": "Deals damage to enemies by creating a powerful fireball",
+      "damage": 10,
+      "race_id": 1
+    },
+    {
+      "id": 2,
+      "name": "blast wave",
+      "description": "Creates an explosive wave that deals damage to all enemies around",
+      "damage": 8,
+      "race_id": 3
+    },
+    {
+      "id": 3,
+      "name": "Treatment",
+      "description": "Heals allies, restoring their health",
+      "damage": -6,
+      "race_id": 2
+    }
   ]
 }
