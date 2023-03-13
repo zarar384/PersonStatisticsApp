@@ -61,6 +61,7 @@ export class PersonComponent implements OnInit {
       this.person.phone = this.form.value.phone as unknown as number;
       this.person.mail = this.form.value.email as string;
       this.person.sex = this.form.value.sex as string;
+      this.person.dr = new Date().toLocaleString() as unknown as Date;
 
       this.apiHit.postData(this.person).subscribe((response: any) => {
         console.log('Data inserted successfully');

@@ -41,6 +41,14 @@
       "mail": "cros@mail.ru",
       "sex": "male",
       "id": 6
+    },
+    {
+      "name": "Ivan",
+      "phone": 6436,
+      "mail": "ter@fwrt.re",
+      "sex": "male",
+      "dr": "13.03.2023, 22:58:57",
+      "id": 9
     }
   ],
   "race": [
