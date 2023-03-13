@@ -45,7 +45,7 @@
   ],
   "race": [
     {
-      "identifier": 1,
+      "id": 1,
       "name": "Elf",
       "description": "Tall and graceful applications with magical powers",
       "strength": 5,
@@ -53,7 +53,7 @@
       "intelligence": 8
     },
     {
-      "identifier": 2,
+      "id": 2,
       "name": "Gnome",
       "description": "Dwarfs, blacksmiths and mechanics",
       "strength": 7,
@@ -61,7 +61,7 @@
       "intelligence": 10
     },
     {
-      "identifier": 3,
+      "id": 3,
       "name": "Orc",
       "description": "Large and perfect, perfect for a warrior role",
       "strength": 10,
@@ -142,6 +142,13 @@
       "description": "Heals allies, restoring their health",
       "damage": -6,
       "race_id": 2
+    }
+  ],
+  "roleplayer": [
+    {
+      "id": 1,
+      "person_id": "",
+      "race_id": ""
     }
   ]
 }
