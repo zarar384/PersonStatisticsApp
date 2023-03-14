@@ -1,8 +1,9 @@
 export class Advance {
   country: string;
   job: string;
-  family: boolean;
+  family: string;
   birth: Date;
   education: boolean;
   years: number;
+  createFamilyBlock: any;
 }
