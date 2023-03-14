@@ -5,5 +5,4 @@ export class Advance {
   birth: Date;
   education: boolean;
   years: number;
-  createFamilyBlock: any;
 }
