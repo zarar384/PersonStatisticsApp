@@ -1,0 +1,25 @@
+{
+    "ability": [
+        {
+            "id": 1,
+            "name": "Fireball",
+            "description": "Deals damage to enemies by creating a powerful fireball",
+            "damage": 10,
+            "race_id": 1
+        },
+        {
+            "id": 2,
+            "name": "blast wave",
+            "description": "Creates an explosive wave that deals damage to all enemies around",
+            "damage": 8,
+            "race_id": 3
+        },
+        {
+            "id": 3,
+            "name": "Treatment",
+            "description": "Heals allies, restoring their health",
+            "damage": -6,
+            "race_id": 2
+        }
+    ]
+}

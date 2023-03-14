@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Input } from '@angular/core';
-import { ApiService } from '../services/api.service';
 import { ITranslate } from '../interfaces/ITranslate';
 import * as xml2js from 'xml2js';
+import { XmlService } from '../services/xml.service';
 
 @Directive({
   selector: '[setTextField]',
@@ -9,10 +9,10 @@ import * as xml2js from 'xml2js';
 export class TextfieldChangedDirective {
   @Input() setTextField: string;
 
-  constructor(private api: ApiService, private el: ElementRef) {}
+  constructor(private xmlService: XmlService, private el: ElementRef) {}
 
   ngOnInit() {
-    this.api.loadXML().subscribe((data) => {
+    this.xmlService.loadXML().subscribe((data) => {
       this.parseXML(data, this.setTextField).then((data) => {
         if (data != null || data != undefined) {
           (this.el.nativeElement as HTMLElement).textContent = data as string;

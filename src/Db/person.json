@@ -1,0 +1,46 @@
+{
+  "person": [
+    {
+      "id": 1,
+      "name": "Bohdan",
+      "mail": "bohdan@gmail.com",
+      "phone": 89521723,
+      "sex": "female"
+    },
+    {
+      "name": "Vova",
+      "phone": 53536,
+      "mail": "fdf",
+      "sex": "eblan",
+      "id": 2
+    },
+    {
+      "name": "Katya",
+      "phone": 3636,
+      "mail": "adsaf",
+      "sex": "female",
+      "id": 3
+    },
+    {
+      "name": "Bohdan",
+      "phone": 52635737,
+      "mail": "bohdan4124@gmail.com",
+      "sex": "eblan",
+      "id": 4
+    },
+    {
+      "name": "Jirka",
+      "phone": 535346356,
+      "mail": "jirka@mail.ru",
+      "sex": "male",
+      "id": 5
+    },
+    {
+      "name": "Kek",
+      "phone": 35356363,
+      "mail": "cros@mail.ru",
+      "sex": "male",
+      "id": 6
+    }
+  ]
+}

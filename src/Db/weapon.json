@@ -1,0 +1,28 @@
+{
+    "weapon": [
+        {
+            "id": 1,
+            "name": "Luk",
+            "description": "A long and flexible bow capable of shooting farther than any other weapon",
+            "damage": 8,
+            "damage_type": "piercing",
+            "race_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Hammer",
+            "description": "A heavy and massive hammer that can deal a powerful blow",
+            "damage": 12,
+            "damage_type": "bludgeoning",
+            "race_id": 3
+        },
+        {
+            "id": 3,
+            "name": "Dagger",
+            "description": "Sharp and light dagger, perfect for stealthy stabbing the enemy in the back",
+            "damage": 6,
+            "damage_type": "cutting",
+            "race_id": 1
+        }
+    ]
+}
