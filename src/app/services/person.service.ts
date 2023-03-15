@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Person } from '../model/person.model';
 import { environment } from 'src/environments/environment';
-
+interface IPerson {
+  [person: string]: Person[];
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -19,12 +21,12 @@ export class PersonService {
   }
 
   getData() {
-    var personJsonList = this.http.get(this.url + 'person');
+    var personJsonList = this.http.get<IPerson>(this.url + 'person');
     // this.person.push(personJsonList);
     return personJsonList;
   }
 
   delData(id: number) {
-    return this.http.delete(this.url + 'person/' + id);
+    return this.http.delete<IPerson>(this.url + 'person/' + id);
   }
 }

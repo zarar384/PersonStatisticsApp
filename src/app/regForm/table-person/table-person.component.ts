@@ -21,9 +21,8 @@ export class TablePersonComponent {
   }
 
   loadPersons() {
-    this.personService.getData().subscribe((response: any) => {
-      this.dataSource.data = response;
-      console.log(response);
+    this.personService.getData().subscribe({
+      next: (persons) => (this.dataSource.data = persons.person),
     });
   }
 
