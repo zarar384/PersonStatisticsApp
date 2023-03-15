@@ -21,12 +21,12 @@ export class PersonService {
   }
 
   getData() {
-    var personJsonList = this.http.get<IPerson>(this.url + 'person');
+    var personJsonList = this.http.get<Person[]>(this.url + 'person');
     // this.person.push(personJsonList);
     return personJsonList;
   }
 
   delData(id: number) {
-    return this.http.delete<IPerson>(this.url + 'person/' + id);
+    return this.http.delete(this.url + 'person/' + id);
   }
 }

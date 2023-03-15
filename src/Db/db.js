@@ -6,10 +6,10 @@ const ability = require("./ability.json");
 const roleplayer = require("./roleplayer.json");
 
 module.exports = () => ({
-  person: person,
-  race: race,
-  weapon: weapon,
-  armor: armor,
-  ability: ability,
-  roleplayer: roleplayer,
+  person: person.person,
+  race: race.race,
+  weapon: weapon.weapon,
+  armor: armor.armor,
+  ability: ability.ability,
+  roleplayer: roleplayer.roleplayer,
 });

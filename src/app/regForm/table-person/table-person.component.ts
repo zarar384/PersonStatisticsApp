@@ -22,7 +22,7 @@ export class TablePersonComponent {
 
   loadPersons() {
     this.personService.getData().subscribe({
-      next: (persons) => (this.dataSource.data = persons.person),
+      next: (persons: Person[]) => (this.dataSource.data = persons),
     });
   }
 
