@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Person } from '../model/person.model';
 import { environment } from 'src/environments/environment';
-interface IPerson {
-  [person: string]: Person[];
-}
+import { catchError, map } from 'rxjs/operators';
+import { EMPTY } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -13,6 +13,7 @@ export class PersonService {
   status: string;
   errorMessage: any;
   textField: string;
+  persons: Person[];
 
   constructor(private http: HttpClient) {}
 
@@ -21,9 +22,16 @@ export class PersonService {
   }
 
   getData() {
-    var personJsonList = this.http.get<Person[]>(this.url + 'person');
-    // this.person.push(personJsonList);
-    return personJsonList;
+    var personJsonList = this.http
+      .get<Person[]>(this.url + 'person')
+      .subscribe({
+        next: (person: Person[]) => (this.persons = person),
+        error: (err: Error) =>
+          console.error(
+            '{\\__/}\n ( •.•)\n / >You have no connection to the API'
+          ),
+      });
+    return this.persons;
   }
 
   delData(id: number) {

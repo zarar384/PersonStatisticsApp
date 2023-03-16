@@ -5,6 +5,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Person } from 'src/app/model/person.model';
 import { PersonService } from 'src/app/services/person.service';
 
@@ -18,16 +19,12 @@ export class PersonComponent implements OnInit {
   otherCheck: string = 'Other';
   person: Person = new Person();
 
-  constructor(private personService: PersonService) {
+  constructor(private personService: PersonService, private dilog: MatDialog) {
     this.form;
   }
 
-  ngOnInit() {
-    // this.apiHit.getData().subscribe((response:any) => {
-    //   this.person = response;
-    //   console.log(this.person);
-    // })
-  }
+  ngOnInit() {}
+
   integreRegex = /^\d+$/;
 
   emailRegex =

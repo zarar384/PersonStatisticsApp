@@ -21,9 +21,7 @@ export class TablePersonComponent {
   }
 
   loadPersons() {
-    this.personService.getData().subscribe({
-      next: (persons: Person[]) => (this.dataSource.data = persons),
-    });
+    this.dataSource.data =this.personService.getData();
   }
 
   openDilog() {
