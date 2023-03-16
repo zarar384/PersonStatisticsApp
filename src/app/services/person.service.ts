@@ -22,15 +22,13 @@ export class PersonService {
   }
 
   getData() {
-    var personJsonList = this.http
-      .get<Person[]>(this.url + 'person')
-      .subscribe({
-        next: (person: Person[]) => (this.persons = person),
-        error: (err: Error) =>
-          console.error(
-            '{\\__/}\n ( •.•)\n / >You have no connection to the API'
-          ),
-      });
+    this.http.get<Person[]>(this.url + 'person').subscribe({
+      next: (person: Person[]) => (this.persons = person),
+      error: (err: Error) =>
+        console.error(
+          '{\\__/}\n ( •.•)\n / >You have no connection to the API'
+        ),
+    });
     return this.persons;
   }
 
