@@ -27,7 +27,11 @@ export class WeaponService {
     return this.http.get(this.url + 'weapon/' + id);
   }
 
-  setRandomStats(id: number) {
+  postData(data: Weapon) {
+    return this.http.post(this.url + 'weapon', data);
+  }
+
+  setRandomDanage(id: number) {
     var weapon = this.getWeapon(id) as unknown as Weapon;
     var min = 1;
     var max = 50;
