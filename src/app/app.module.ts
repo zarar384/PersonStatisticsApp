@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { TextfieldChangedDirective } from './shared/textfield-changed.directive';
+import { WeaponComponent } from './rolePlayForm/weapon/weapon.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { TextfieldChangedDirective } from './shared/textfield-changed.directive'
     NavComponent,
     TablePersonComponent,
     TextfieldChangedDirective,
+    WeaponComponent,
   ],
   imports: [
     BrowserModule,

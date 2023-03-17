@@ -1,0 +1,28 @@
+{
+    "armor": [
+        {
+            "id": 1,
+            "name": "Leather armor",
+            "description": "Light armor that allows you to move faster",
+            "armor": 5,
+            "armor_type": "leather",
+            "race_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Plate armor",
+            "description": "Heavy armor made of many metal plates",
+            "armor": 12,
+            "armor_type": "plate",
+            "race_id": 3
+        },
+        {
+            "id": 3,
+            "name": "Kolchuga",
+            "description": "Medium armor of linked rings",
+            "armor": 8,
+            "armor_type": "mail",
+            "race_id": 2
+        }
+    ]
+}

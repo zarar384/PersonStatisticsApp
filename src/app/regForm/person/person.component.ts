@@ -5,8 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Person } from 'src/app/model/person.model';
-import { ApiService } from 'src/app/services/api.service';
+import { PersonService } from 'src/app/services/person.service';
 
 @Component({
   selector: 'app-person',
@@ -18,16 +19,12 @@ export class PersonComponent implements OnInit {
   otherCheck: string = 'Other';
   person: Person = new Person();
 
-  constructor(private apiHit: ApiService) {
+  constructor(private personService: PersonService, private dilog: MatDialog) {
     this.form;
   }
 
-  ngOnInit() {
-    // this.apiHit.getData().subscribe((response:any) => {
-    //   this.person = response;
-    //   console.log(this.person);
-    // })
-  }
+  ngOnInit() {}
+
   integreRegex = /^\d+$/;
 
   emailRegex =
@@ -63,7 +60,7 @@ export class PersonComponent implements OnInit {
       this.person.sex = this.form.value.sex as string;
       this.person.dr = new Date().toLocaleString() as unknown as Date;
 
-      this.apiHit.postData(this.person).subscribe((response: any) => {
+      this.personService.postData(this.person).subscribe((response: any) => {
         console.log('Data inserted successfully');
         this.ngOnInit();
       });

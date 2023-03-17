@@ -67,7 +67,7 @@
   <div>
     <small class="text-danger" *ngIf="this.form.status === 'INVALID'">Please fill in all required fields</small>
   </div>
-  <button class="w-20 btn btn-primary btn-lg btn-block" type="submit" (click)="registerFn()" setTextField="Field.Send"></button>
+  <button class="w-20 btn btn-primary btn-lg btn-block" id="sendButton" type="submit" (click)="registerFn()" setTextField="Field.Send" [disabled]="this.form.status === 'INVALID'" mat-dialog-close></button>
   <!-- <footer class="my-5 pt-5 text-muted text-center text-small">
             <p class="mb-1">© 2022-2017 اسم الشركة</p>
             <ul class="list-inline">

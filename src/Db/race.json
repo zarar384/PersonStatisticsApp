@@ -1,0 +1,28 @@
+{
+    "race": [
+        {
+            "id": 1,
+            "name": "Elf",
+            "description": "Tall and graceful applications with magical powers",
+            "strength": 5,
+            "dexterity": 10,
+            "intelligence": 8
+        },
+        {
+            "id": 2,
+            "name": "Gnome",
+            "description": "Dwarfs, blacksmiths and mechanics",
+            "strength": 7,
+            "dexterity": 5,
+            "intelligence": 10
+        },
+        {
+            "id": 3,
+            "name": "Orc",
+            "description": "Large and perfect, perfect for a warrior role",
+            "strength": 10,
+            "dexterity": 5,
+            "intelligence": 3
+        }
+    ]
+}
