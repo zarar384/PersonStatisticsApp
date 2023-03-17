@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Race } from '../model/race.Model';
 import { environment } from 'src/environments/environment';
+import { Race } from '../model/race.model';
 
 @Injectable({
   providedIn: 'root',
@@ -32,10 +32,10 @@ export class RaceService {
     var max = 50;
     var random = Math.floor(Math.random() * (max - min) + min);
 
-    var newStats = {
+    var newStats: Race = {
       id: race.id,
       name: race.name,
-      describe: race.strength,
+      description: race.description,
       strength: random,
       dexterity: random,
       intelligence: random,

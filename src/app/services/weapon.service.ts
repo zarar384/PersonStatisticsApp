@@ -37,7 +37,7 @@ export class WeaponService {
     var max = 50;
     var randomDamage = Math.floor(Math.random() * (max - min) + min);
 
-    var newWeapon = {
+    var newWeapon: Weapon = {
       id: weapon.id,
       name: weapon.name,
       description: weapon.description,

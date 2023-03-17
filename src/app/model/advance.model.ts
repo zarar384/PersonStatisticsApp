@@ -3,6 +3,4 @@ export class Advance {
   job: string;
   family: string;
   birth: Date;
-  education: boolean;
-  years: number;
 }

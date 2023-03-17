@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { TextfieldChangedDirective } from './shared/textfield-changed.directive';
 import { WeaponComponent } from './rolePlayForm/weapon/weapon.component';
+import { RaceComponent } from './rolePlayForm/race/race.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { WeaponComponent } from './rolePlayForm/weapon/weapon.component';
     TablePersonComponent,
     TextfieldChangedDirective,
     WeaponComponent,
+    RaceComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,23 +5,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./advance.component.css'],
 })
 export class AdvanceComponent {
-  createFamilyBlock() {
-    console.log('bib');
+  createFamilyBlock(event: any) {
     var family = ['Mother', 'Brother', 'Sister', 'Grandmother', 'Grandfather'];
     const random = Math.floor(Math.random() * family.length);
 
-    const ul = document.getElementById('family');
+    const div = document.getElementById('family');
+    var inputChild = div?.lastElementChild;
+    inputChild?.setAttribute('style', 'margin-bottom: 20px;');
 
-    const li = document.createElement('li');
     const input = document.createElement('input');
-
     input.type = 'text';
     input.className = 'form-control';
     input.setAttribute('style', 'margin-bottom: 20px;');
     input.id = 'family';
     input.placeholder = family[random];
 
-    ul?.appendChild(li);
-    li?.appendChild(input);
+    div?.appendChild(input);
   }
 }
