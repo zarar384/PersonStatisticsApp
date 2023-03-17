@@ -19,6 +19,11 @@ export class AdvanceComponent {
     input.setAttribute('style', 'margin-bottom: 20px;');
     input.id = 'family';
     input.placeholder = family[random];
+    input.addEventListener('keyup', (event) => {
+      if (event.key === 'Enter') {
+        this.createFamilyBlock(event);
+      }
+    });
 
     div?.appendChild(input);
   }
