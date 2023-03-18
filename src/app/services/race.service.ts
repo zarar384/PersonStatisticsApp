@@ -26,6 +26,10 @@ export class RaceService {
     return this.http.get(this.url + 'race/' + id);
   }
 
+  delRace(id: number) {
+    return this.http.delete(this.url + 'race/' + id);
+  }
+
   getRandomStats(id: number) {
     var race = this.getRace(id) as unknown as Race;
     var min = 1;

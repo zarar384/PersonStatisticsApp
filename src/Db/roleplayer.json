@@ -2,8 +2,8 @@
     "roleplayer": [
         {
             "id": 1,
-            "person_id": "",
-            "race_id": ""
+            "person_id": 1,
+            "race_id": 1
         }
     ]
 }

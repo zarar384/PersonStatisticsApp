@@ -27,6 +27,10 @@ export class WeaponService {
     return this.http.get(this.url + 'weapon/' + id);
   }
 
+  delWeapon(id: number) {
+    return this.http.delete(this.url + 'weapon/' + id);
+  }
+
   postData(data: Weapon) {
     return this.http.post(this.url + 'weapon', data);
   }
