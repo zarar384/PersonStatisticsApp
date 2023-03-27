@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C+hWnlz2Kj2omUtoJUlvC5zJz4oqbaQPrbeEIzNILwtIDfhCI3dOd8DTuFD9Yt1STMYIDZe5ug7CwgmDkCR76A==",
+  "dgSpecHash": "fBjbDjwtaLhoicIOXHpc6jZP0hEzCkXd9IKgsgSiJWFXneaACb5XtYkR/3ApqxGv5LyuLFbjm13wGRBZ1fOtgg==",
   "success": true,
-  "projectFilePath": "D:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+  "projectFilePath": "D:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Felix\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.4\\microsoft.aspnetcore.openapi.7.0.4.nupkg.sha512",
     "C:\\Users\\Felix\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
