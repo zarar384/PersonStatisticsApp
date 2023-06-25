@@ -1,17 +1,214 @@
 {
   "format": 1,
   "restore": {
-    "D:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {}
+    "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {}
   },
   "projects": {
-    "D:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {
+    "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
-        "projectName": "PersonStatisticsAPI",
-        "projectPath": "D:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+        "projectUniqueName": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
+        "projectName": "PersonStatisticsAPI.Business",
+        "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "D:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\obj\\",
+        "outputPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Felix\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+                "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
+              },
+              "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj": {
+                "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj"
+              },
+              "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+                "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj",
+        "projectName": "PersonStatisticsAPI.DataModels",
+        "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj",
+        "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
+        "outputPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Felix\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj",
+        "projectName": "PersonStatisticsAPI.Data",
+        "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj",
+        "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
+        "outputPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Felix\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+                "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
+        "projectName": "PersonStatisticsAPI.Models",
+        "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
+        "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
+        "outputPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +248,116 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.4.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+        "projectName": "PersonStatisticsAPI",
+        "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+        "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
+        "outputPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Felix\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
+                "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj"
+              },
+              "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+                "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
+              },
+              "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+                "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.4, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.4.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.27.0, )"
             }
           },
           "imports": [
