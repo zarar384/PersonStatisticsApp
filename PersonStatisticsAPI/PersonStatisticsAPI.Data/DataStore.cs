@@ -1,4 +1,4 @@
-﻿using PersonStatisticsAPI.DTOs;
+﻿using PersonStatisticsAPI.DataModels;
 
 namespace PersonStatisticsAPI.Data;
 public class DataStore : IDataStore

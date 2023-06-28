@@ -38,6 +38,8 @@ xcuserdata/
 !.vscode/extensions.json
 .history/*
 
+/PersonStatisticsAPI/.vs/
+
 # misc
 /.angular/cache
 /.sass-cache
@@ -52,13 +54,6 @@ testem.log
 
 # System Files
 .DS_Store
-Thumbs.db
-
-#Ignore folder
-/PersonStatisticsApp/.vs/
-/PersonStatisticsApp/.vscode/
-/PersonStatisticsApp/PersonStatisticsAPI/PersonStatisticsAPI/bin/
-/PersonStatisticsApp/PersonStatisticsAPI/PersonStatisticsAPI/obj/
 
 #Ignore thumbnails created by windows
 Thumbs.db

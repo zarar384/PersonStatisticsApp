@@ -5,7 +5,7 @@ using PersonStatisticsAPI.Data;
 using PersonStatisticsAPI.Models;
 using PersonStatisticsAPI.DataModels;
 
-namespace PersonStatisticsAPI.Business;
+namespace PersonStatisticsAPI.Business.Managers;
 
 public class PersonManager : IPersonManager
 {
@@ -18,7 +18,7 @@ public class PersonManager : IPersonManager
         _mapper = mapper;
     }
 
-    HttpModelResult IPersonManager.Add(BaseModel model)
+    public HttpModelResult Add(BaseModel model)
     {
         HttpModelResult result = new HttpModelResult();
         if (_dataStore.Get(model.Name) == null)
@@ -59,12 +59,15 @@ public class PersonManager : IPersonManager
         return result;
     }
 
-    HttpModelResult IPersonManager.Delete(Guid id)
+    public HttpModelResult Delete(Guid id)
     {
-        throw new NotImplementedException();
+        HttpModelResult result = new HttpModelResult();
+        BaseDto dto = _dataStore.Delete(id);
+        result.HttpStatus = dto == null ? HttpStatusCode.NoContent : HttpStatusCode.OK;
+        return result;
     }
 
-    HttpModelResult IPersonManager.Get(Guid id)
+    public HttpModelResult Get(Guid id)
     {
         HttpModelResult result = new HttpModelResult();
         BaseDto personDto = _dataStore.Get(id);
@@ -80,13 +83,32 @@ public class PersonManager : IPersonManager
         return result;
     }
 
-    HttpModelResult IPersonManager.GetAll()
+    public HttpModelResult GetAll()
     {
-        throw new NotImplementedException();
+        HttpModelResult result = new HttpModelResult();
+        IEnumerable<BaseDto> dtos = _dataStore.GetAll();
+        List<Person> persons= dtos.Select(baseDto => _mapper.Map<Person>(baseDto)).ToList();
+        result.Models = persons.AsEnumerable();
+        result.HttpStatus= HttpStatusCode.OK;
+        return result;
     }
 
-    HttpModelResult IPersonManager.Update(BaseModel model, Guid id)
+    public HttpModelResult Update(BaseModel model, Guid id)
     {
-        throw new NotImplementedException();
+        if(_dataStore.Get(id)== null)
+        {
+            return Add(model);
+        }
+        else
+        {
+            model.Id = id;
+            PersonDto dto = _mapper.Map<PersonDto>(model);
+            dto = (PersonDto)_dataStore.AddOrUpdate(dto);
+            return new HttpModelResult
+            {
+                HttpStatus = HttpStatusCode.OK,
+                Model = _mapper.Map<Person>(dto)
+            };
+        }
     }
 }

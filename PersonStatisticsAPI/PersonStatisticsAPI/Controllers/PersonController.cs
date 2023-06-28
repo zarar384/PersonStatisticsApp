@@ -1,7 +1,5 @@
 ﻿using System.Net;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using PersonStatisticsAPI.Business;
 using PersonStatisticsAPI.Business.Interfaces;
 using PersonStatisticsAPI.Models;
 
@@ -47,5 +45,35 @@ public class PersonController : BaseApiController
         }
 
         return new StatusCodeResult((int)modelResult.HttpStatus);
+    }
+
+    [Route("{id}")]
+    [HttpPost]
+    public IActionResult Put(Guid id,[FromBody] Person person)
+    {
+        HttpModelResult modelResult = _personManager.Update(person, id);
+        if(modelResult.HttpStatus == HttpStatusCode.Created) 
+        {
+            return new CreatedResult(
+                string.Format("/api/person/{0}",
+                modelResult.Model.Id),
+                modelResult.Model);
+        }
+
+        return new StatusCodeResult((int)modelResult.HttpStatus);
+    }
+
+    [HttpDelete("{id}")]
+    public IActionResult Delete(Guid id)
+    {
+        HttpModelResult modelResult = _personManager.Delete(id);
+        return new StatusCodeResult((int)modelResult.HttpStatus);
+    }
+
+    [HttpGet]
+    public IActionResult Get()
+    {
+        HttpModelResult modelResult = _personManager.GetAll();
+        return Ok(modelResult.Models);
     }
 }

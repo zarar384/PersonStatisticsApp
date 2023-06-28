@@ -3,6 +3,7 @@ using PersonStatisticsAPI.Business.Interfaces;
 using PersonStatisticsAPI.Business;
 using AutoMapper;
 using PersonStatisticsAPI.Helpers;
+using PersonStatisticsAPI.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration config = new ConfigurationBuilder()
@@ -17,6 +18,7 @@ MapperConfiguration mapperConfiguration = new MapperConfiguration(cfg =>
 
 // Add framework services
 builder.Services.AddTransient<IPersonManager, PersonManager>();
+builder.Services.AddSingleton<IDataStore, DataStore>();
 builder.Services.AddSingleton(sp => mapperConfiguration.CreateMapper());
 builder.Services.AddMvc();
 

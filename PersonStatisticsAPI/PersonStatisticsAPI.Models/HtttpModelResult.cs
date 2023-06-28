@@ -1,7 +1,6 @@
 ﻿using System.Net;
-using PersonStatisticsAPI.Models;
 
-namespace PersonStatisticsAPI.Business
+namespace PersonStatisticsAPI.Models
 {
     public class HttpModelResult
     {

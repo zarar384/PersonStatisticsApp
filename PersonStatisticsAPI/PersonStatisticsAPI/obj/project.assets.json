@@ -4061,11 +4061,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+      "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
       "projectName": "PersonStatisticsAPI",
-      "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+      "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
       "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-      "outputPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\obj\\",
+      "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4080,20 +4080,21 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
-              "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj"
+            "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
+              "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj"
             },
-            "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
-              "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
+            "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+              "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
             },
-            "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
-              "projectPath": "d:\\all\\HTML, CSS, JS\\PersonStatisticsApp\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
+            "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+              "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
             }
           }
         }
@@ -4164,7 +4165,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
       }
     }
   }
