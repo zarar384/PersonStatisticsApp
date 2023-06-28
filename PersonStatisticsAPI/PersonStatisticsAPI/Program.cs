@@ -1,9 +1,9 @@
 using PersonStatisticsAPI.Extensions;
 using PersonStatisticsAPI.Business.Interfaces;
-using PersonStatisticsAPI.Business;
 using AutoMapper;
 using PersonStatisticsAPI.Helpers;
 using PersonStatisticsAPI.Data;
+using PersonStatisticsAPI.Business.Managers;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration config = new ConfigurationBuilder()

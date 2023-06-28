@@ -48,7 +48,7 @@ public class PersonController : BaseApiController
     }
 
     [Route("{id}")]
-    [HttpPost]
+    [HttpPut]
     public IActionResult Put(Guid id,[FromBody] Person person)
     {
         HttpModelResult modelResult = _personManager.Update(person, id);
@@ -70,6 +70,7 @@ public class PersonController : BaseApiController
         return new StatusCodeResult((int)modelResult.HttpStatus);
     }
 
+    [Route("")]
     [HttpGet]
     public IActionResult Get()
     {
