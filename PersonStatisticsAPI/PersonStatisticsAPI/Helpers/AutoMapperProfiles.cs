@@ -8,14 +8,10 @@ namespace PersonStatisticsAPI.Helpers
     {
         public AutoMapperProfiles()
         {
-            CreateMap<Person, PersonDto>()
-                .ForMember("UId", s=>s.Ignore())
-                .AfterMap((model,dto)=>model.Id = dto.UId);
-            CreateMap<Ability, AbilityDto>();
-            CreateMap<Armor, ArmorDto>();
-            CreateMap<Race, RaceDto>();
-            CreateMap<Roleplayer, RoleplayerDto>();
-            CreateMap<Weapon, WeaponDto>();
+            CreateMap<Person, PersonDto>();
+
+            CreateMap<PersonDto, Person>();
+
         }
     }
 }

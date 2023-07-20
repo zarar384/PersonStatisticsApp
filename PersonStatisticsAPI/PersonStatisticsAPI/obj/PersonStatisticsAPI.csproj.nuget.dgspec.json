@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {}
+    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {}
   },
   "projects": {
-    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
+    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
+        "projectUniqueName": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
         "projectName": "PersonStatisticsAPI.Business",
-        "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
+        "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\obj\\",
+        "outputPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,14 +32,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
-                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
+              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
               },
-              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj": {
-                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj"
+              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj": {
+                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj"
               },
-              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
-                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
+              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
               }
             }
           }
@@ -54,9 +54,33 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
             }
           },
           "imports": [
@@ -79,14 +103,14 @@
         }
       }
     },
-    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj",
+        "projectUniqueName": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj",
         "projectName": "PersonStatisticsAPI.DataModels",
-        "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj",
+        "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\obj\\",
+        "outputPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -118,6 +142,32 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -138,14 +188,14 @@
         }
       }
     },
-    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj": {
+    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj",
+        "projectUniqueName": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj",
         "projectName": "PersonStatisticsAPI.Data",
-        "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj",
+        "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\obj\\",
+        "outputPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -166,8 +216,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
-                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
+              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
               }
             }
           }
@@ -181,6 +231,32 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -201,14 +277,14 @@
         }
       }
     },
-    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
+        "projectUniqueName": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
         "projectName": "PersonStatisticsAPI.Models",
-        "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
+        "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\obj\\",
+        "outputPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -242,9 +318,33 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -274,14 +374,14 @@
         }
       }
     },
-    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {
+    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+        "projectUniqueName": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
         "projectName": "PersonStatisticsAPI",
-        "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+        "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\obj\\",
+        "outputPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -303,14 +403,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
-                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj"
+              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
+                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj"
               },
-              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
-                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
+              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
+                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
               },
-              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
-                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
+              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
               }
             }
           }
@@ -325,6 +425,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.0, )"
@@ -335,23 +439,23 @@
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.9, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

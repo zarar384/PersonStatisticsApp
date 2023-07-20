@@ -4,7 +4,9 @@ namespace PersonStatisticsAPI.Models;
 public class BaseModel
 {
     [Key]
-    public Guid Id { get; set; }
-    [StringLength(50)]
+    public int Id { get; set; }
+
+    [Required]
+    [StringLength(32)]
     public string Name { get; set; }
 }

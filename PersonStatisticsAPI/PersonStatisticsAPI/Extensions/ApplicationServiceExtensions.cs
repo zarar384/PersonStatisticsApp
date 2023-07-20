@@ -7,8 +7,9 @@ namespace PersonStatisticsAPI.Extensions
     {
         public static IServiceCollection AddAplicationServices(this  IServiceCollection services, IConfiguration config) 
         {
-            services.AddDbContext<AppDbContext>(options =>
-            options.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+            services.AddDbContextPool<AppDbContext>(option =>
+                option.UseSqlServer(config.GetConnectionString("DefaultConnection"),
+                settings => settings.EnableRetryOnFailure().CommandTimeout(60)));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             return services;

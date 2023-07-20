@@ -12,9 +12,8 @@ public class DataStore : IDataStore
 
     public BaseDto AddOrUpdate(BaseDto dto)
     {
-        if (dto.UId == Guid.Empty)
+        if (dto.Id == null)
         {
-            dto.UId = Guid.NewGuid();
             _dtoRepository.Add(dto);
         }
         else
@@ -26,9 +25,9 @@ public class DataStore : IDataStore
         return dto;
     }
 
-    public BaseDto Delete(Guid id)
+    public BaseDto Delete(int id)
     {
-        BaseDto baseDto = _dtoRepository.Find(x => x.UId == id);
+        BaseDto baseDto = _dtoRepository.Find(x => x.Id == id);
         if (baseDto != null)
         {
             _dtoRepository.Remove(baseDto);
@@ -40,9 +39,9 @@ public class DataStore : IDataStore
         }
     }
 
-    public BaseDto Get(Guid id)
+    public BaseDto Get(int id)
     {
-        return _dtoRepository.FirstOrDefault(x => x.UId == id);
+        return _dtoRepository.FirstOrDefault(x => x.Id == id);
     }
 
     public BaseDto Get(string name)

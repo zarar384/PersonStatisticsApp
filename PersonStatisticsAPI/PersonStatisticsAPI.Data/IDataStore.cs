@@ -4,8 +4,8 @@ namespace PersonStatisticsAPI.Data;
 public interface IDataStore
 {
     BaseDto AddOrUpdate(BaseDto dto);
-    BaseDto Delete(Guid id);
-    BaseDto Get(Guid id);
+    BaseDto Delete(int id);
+    BaseDto Get(int id);
     BaseDto Get(string name);
     IEnumerable<BaseDto> GetAll();
 

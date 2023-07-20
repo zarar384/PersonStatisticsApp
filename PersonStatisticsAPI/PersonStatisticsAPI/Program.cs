@@ -45,4 +45,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+//app.UsePacktHeaderValidator();
+
 app.Run();

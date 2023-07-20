@@ -59,7 +59,7 @@ public class PersonManager : IPersonManager
         return result;
     }
 
-    public HttpModelResult Delete(Guid id)
+    public HttpModelResult Delete(int id)
     {
         HttpModelResult result = new HttpModelResult();
         BaseDto dto = _dataStore.Delete(id);
@@ -67,7 +67,7 @@ public class PersonManager : IPersonManager
         return result;
     }
 
-    public HttpModelResult Get(Guid id)
+    public HttpModelResult Get(int id)
     {
         HttpModelResult result = new HttpModelResult();
         BaseDto personDto = _dataStore.Get(id);
@@ -93,7 +93,7 @@ public class PersonManager : IPersonManager
         return result;
     }
 
-    public HttpModelResult Update(BaseModel model, Guid id)
+    public HttpModelResult Update(BaseModel model, int id)
     {
         if(_dataStore.Get(id)== null)
         {

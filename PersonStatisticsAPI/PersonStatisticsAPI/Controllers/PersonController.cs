@@ -1,20 +1,23 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using PersonStatisticsAPI.Business.Interfaces;
+using PersonStatisticsAPI.Db;
 using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI;
 public class PersonController : BaseApiController
 {
     private readonly IPersonManager _personManager;
+    private readonly AppDbContext _db;
 
-    public PersonController(IPersonManager personManager)
+    public PersonController(IPersonManager personManager, AppDbContext db)
     {
         _personManager = personManager;
+        _db = db;
     }
 
     [HttpGet("{id}")]
-    public IActionResult Get(Guid id)
+    public IActionResult Get(int id)
     {
         HttpModelResult modelResult = _personManager.Get(id);
         if (modelResult.HttpStatus == HttpStatusCode.OK)
@@ -39,6 +42,8 @@ public class PersonController : BaseApiController
         HttpModelResult modelResult = _personManager.Add(person);
         if (modelResult.HttpStatus == HttpStatusCode.Created)
         {
+            _db.Add(person);
+            _db.SaveChanges();
             return new CreatedResult(string.Format("/api/person/{0}",
                                      modelResult.Model.Id),
                                      modelResult.Model);
@@ -49,7 +54,7 @@ public class PersonController : BaseApiController
 
     [Route("{id}")]
     [HttpPut]
-    public IActionResult Put(Guid id,[FromBody] Person person)
+    public IActionResult Put(int id,[FromBody] Person person)
     {
         HttpModelResult modelResult = _personManager.Update(person, id);
         if(modelResult.HttpStatus == HttpStatusCode.Created) 
@@ -64,7 +69,7 @@ public class PersonController : BaseApiController
     }
 
     [HttpDelete("{id}")]
-    public IActionResult Delete(Guid id)
+    public IActionResult Delete(int id)
     {
         HttpModelResult modelResult = _personManager.Delete(id);
         return new StatusCodeResult((int)modelResult.HttpStatus);
