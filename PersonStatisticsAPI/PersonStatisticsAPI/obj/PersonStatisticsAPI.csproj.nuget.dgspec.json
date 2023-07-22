@@ -60,7 +60,7 @@
             },
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[12.0.0, )"
+              "version": "[12.0.1, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -147,6 +147,10 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.9, )"
@@ -218,6 +222,9 @@
             "projectReferences": {
               "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
                 "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
+              },
+              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
               }
             }
           }
@@ -233,6 +240,10 @@
           "targetAlias": "net7.0",
           "dependencies": {
             "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[12.0.1, )"
             },
@@ -322,9 +333,13 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -348,7 +363,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             }
           },
           "imports": [
@@ -431,11 +446,11 @@
             },
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[12.0.0, )"
+              "version": "[12.0.1, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[7.0.4, )"
+              "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -459,11 +474,11 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[6.5.0, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[6.27.0, )"
+              "version": "[6.32.0, )"
             }
           },
           "imports": [

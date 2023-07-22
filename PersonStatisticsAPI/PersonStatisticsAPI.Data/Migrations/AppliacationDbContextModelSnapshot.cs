@@ -4,14 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PersonStatisticsAPI.Db;
+using PersonStatisticsAPI.Data.Db;
 
 #nullable disable
 
-namespace PersonStatisticsAPI.Migrations
+namespace PersonStatisticsAPI.Data.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AppliacationDbContext))]
+    partial class AppliacationDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -55,7 +55,7 @@ namespace PersonStatisticsAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Persons");
+                    b.ToTable("Persons", (string)null);
                 });
 #pragma warning restore 612, 618
         }

@@ -4,14 +4,17 @@ using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI.Helpers
 {
-    public class AutoMapperProfiles : Profile
+    public class MappingConfig 
     {
-        public AutoMapperProfiles()
+        public static MapperConfiguration RegisterMaps()
         {
-            CreateMap<Person, PersonDto>();
+            var mappingConfig = new MapperConfiguration(config =>
+            {
+                config.CreateMap<Person, PersonDto>();
+                config.CreateMap<PersonDto, Person>();
+            });
 
-            CreateMap<PersonDto, Person>();
-
+            return mappingConfig;
         }
     }
 }

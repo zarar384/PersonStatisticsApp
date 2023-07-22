@@ -1,11 +1,11 @@
 using Microsoft.EntityFrameworkCore;
 using PersonStatisticsAPI.Models;
 
-namespace PersonStatisticsAPI.Db
+namespace PersonStatisticsAPI.Data.Db
 {
-    public class AppDbContext : DbContext
+    public class AppliacationDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+        public AppliacationDbContext(DbContextOptions<AppliacationDbContext> options) : base(options)
         {
 
         }

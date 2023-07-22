@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PersonStatisticsAPI.Db;
+using PersonStatisticsAPI.Data.Db;
 
 #nullable disable
 
-namespace PersonStatisticsAPI.Migrations
+namespace PersonStatisticsAPI.Data.Migrations
 {
-    [DbContext(typeof(AppDbContext))]
-    [Migration("20230720211658_table Person")]
-    partial class tablePerson
+    [DbContext(typeof(AppliacationDbContext))]
+    [Migration("20230722213457_PersonTable")]
+    partial class PersonTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

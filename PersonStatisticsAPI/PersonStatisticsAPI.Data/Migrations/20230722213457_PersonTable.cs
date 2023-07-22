@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PersonStatisticsAPI.Migrations
+namespace PersonStatisticsAPI.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class tablePerson : Migration
+    public partial class PersonTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

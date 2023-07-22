@@ -1,19 +1,16 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using PersonStatisticsAPI.Business.Interfaces;
-using PersonStatisticsAPI.Db;
 using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI;
 public class PersonController : BaseApiController
 {
     private readonly IPersonManager _personManager;
-    private readonly AppDbContext _db;
 
-    public PersonController(IPersonManager personManager, AppDbContext db)
+    public PersonController(IPersonManager personManager)
     {
         _personManager = personManager;
-        _db = db;
     }
 
     [HttpGet("{id}")]
@@ -42,8 +39,8 @@ public class PersonController : BaseApiController
         HttpModelResult modelResult = _personManager.Add(person);
         if (modelResult.HttpStatus == HttpStatusCode.Created)
         {
-            _db.Add(person);
-            _db.SaveChanges();
+            //_db.Add(person);
+            //_db.SaveChanges();
             return new CreatedResult(string.Format("/api/person/{0}",
                                      modelResult.Model.Id),
                                      modelResult.Model);

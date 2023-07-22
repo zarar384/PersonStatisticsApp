@@ -1,18 +1,18 @@
 ﻿using System.Net;
 using PersonStatisticsAPI.Business.Interfaces;
 using AutoMapper;
-using PersonStatisticsAPI.Data;
 using PersonStatisticsAPI.Models;
 using PersonStatisticsAPI.DataModels;
+using PersonStatisticsAPI.Data.Interfaces;
 
 namespace PersonStatisticsAPI.Business.Managers;
 
 public class PersonManager : IPersonManager
 {
-    private readonly IDataStore _dataStore;
+    private readonly IPersonRepository _dataStore;
     private readonly IMapper _mapper;
 
-    public PersonManager(IDataStore dataStore, IMapper mapper)
+    public PersonManager(IPersonRepository dataStore, IMapper mapper)
     {
         _dataStore = dataStore;
         _mapper = mapper;
@@ -36,10 +36,10 @@ public class PersonManager : IPersonManager
     private HttpModelResult AddModel(BaseModel model)
     {
         HttpModelResult result = new HttpModelResult();
-        PersonDto personDto = _mapper.Map<PersonDto>(model);
+        PersonDto personDto = _mapper.Map<BaseModel, PersonDto>(model);
         try
         {
-            personDto = (PersonDto)_dataStore.AddOrUpdate(personDto);
+            personDto = _dataStore.AddOrUpdate(personDto);
             if (personDto != null)
             {
                 Person createPerson = _mapper.Map<Person>(personDto);
@@ -70,7 +70,7 @@ public class PersonManager : IPersonManager
     public HttpModelResult Get(int id)
     {
         HttpModelResult result = new HttpModelResult();
-        BaseDto personDto = _dataStore.Get(id);
+        PersonDto personDto = _dataStore.Get(id);
         if (personDto == null)
         {
             result.HttpStatus = HttpStatusCode.NotFound;
@@ -86,8 +86,8 @@ public class PersonManager : IPersonManager
     public HttpModelResult GetAll()
     {
         HttpModelResult result = new HttpModelResult();
-        IEnumerable<BaseDto> dtos = _dataStore.GetAll();
-        List<Person> persons= dtos.Select(baseDto => _mapper.Map<Person>(baseDto)).ToList();
+        IEnumerable<PersonDto> dtos = _dataStore.GetAll();
+        List<Person> persons= dtos.Select(dtos => _mapper.Map<Person>(dtos)).ToList();
         result.Models = persons.AsEnumerable();
         result.HttpStatus= HttpStatusCode.OK;
         return result;
@@ -102,8 +102,8 @@ public class PersonManager : IPersonManager
         else
         {
             model.Id = id;
-            PersonDto dto = _mapper.Map<PersonDto>(model);
-            dto = (PersonDto)_dataStore.AddOrUpdate(dto);
+            PersonDto dto = _mapper.Map<BaseModel,PersonDto>(model);
+            dto = _dataStore.AddOrUpdate(dto);
             return new HttpModelResult
             {
                 HttpStatus = HttpStatusCode.OK,
