@@ -10,8 +10,8 @@ namespace PersonStatisticsAPI.Helpers
         {
             var mappingConfig = new MapperConfiguration(config =>
             {
-                config.CreateMap<Person, PersonDto>();
-                config.CreateMap<PersonDto, Person>();
+                config.CreateMap<BaseModel, BaseDto>().ReverseMap();
+                config.CreateMap<Person, PersonDto>().ReverseMap();
             });
 
             return mappingConfig;

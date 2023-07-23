@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using PersonStatisticsAPI.Data.Db;
 using PersonStatisticsAPI.Data.Interfaces;
 using PersonStatisticsAPI.DataModels;
@@ -48,13 +49,13 @@ public class PersonRepository : IPersonRepository
 
     public PersonDto Get(int id)
     {
-        Person person = _db.Persons.FirstOrDefault(x => x.Id == id);
+        Person person = _db.Persons.AsNoTracking().FirstOrDefault(x => x.Id == id);
         return _mapper.Map<PersonDto>(person);
     }
 
     public PersonDto Get(string name)
     {
-        Person person = _db.Persons.FirstOrDefault(x=>x.Name== name);
+        Person person = _db.Persons.AsNoTracking().FirstOrDefault(x=>x.Name== name);
         return _mapper.Map<PersonDto>(person); 
     }
 
