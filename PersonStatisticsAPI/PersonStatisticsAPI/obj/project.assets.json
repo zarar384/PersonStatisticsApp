@@ -88,6 +88,25 @@
           }
         }
       },
+      "MediaBrowser.Common/4.7.9": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/MediaBrowser.Common.dll": {
+            "related": ".pdb"
+          },
+          "lib/netstandard2.0/MediaBrowser.Model.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediaBrowser.Common.dll": {
+            "related": ".pdb"
+          },
+          "lib/netstandard2.0/MediaBrowser.Model.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
       "Microsoft.AspNetCore.OpenApi/7.0.9": {
         "type": "package",
         "dependencies": {
@@ -1431,6 +1450,21 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "MediaBrowser.Common/4.7.9": {
+      "sha512": "fmxyGZn/WkrFGpYRcCtaQS+lr9K/Js56SKLRoL8t4tcYqKM8ZdGI9eMhqRhNg2SiSxAVLQEtoRgx1gFYHxkAFw==",
+      "type": "package",
+      "path": "mediabrowser.common/4.7.9",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/MediaBrowser.Common.dll",
+        "lib/netstandard2.0/MediaBrowser.Common.pdb",
+        "lib/netstandard2.0/MediaBrowser.Model.dll",
+        "lib/netstandard2.0/MediaBrowser.Model.pdb",
+        "mediabrowser.common.4.7.9.nupkg.sha512",
+        "mediabrowser.common.nuspec"
       ]
     },
     "Microsoft.AspNetCore.OpenApi/7.0.9": {
@@ -4080,6 +4114,7 @@
     "net7.0": [
       "AutoMapper >= 12.0.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 12.0.1",
+      "MediaBrowser.Common >= 4.7.9",
       "Microsoft.AspNetCore.OpenApi >= 7.0.9",
       "Microsoft.EntityFrameworkCore >= 7.0.9",
       "Microsoft.EntityFrameworkCore.Design >= 7.0.9",
@@ -4154,6 +4189,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[12.0.1, )"
+          },
+          "MediaBrowser.Common": {
+            "target": "Package",
+            "version": "[4.7.9, )"
           },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
