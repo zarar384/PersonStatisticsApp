@@ -23,11 +23,11 @@ namespace PersonStatisticsAPI.Data.Db
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().Ignore(t => t.Name);
+            //modelBuilder.Entity<User>().Ignore(t => t.Name);
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<Person> Persons { get; set; }
+        public DbSet<Pack> Packs { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }

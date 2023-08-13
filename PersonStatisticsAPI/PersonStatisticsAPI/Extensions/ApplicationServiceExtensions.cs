@@ -6,6 +6,8 @@ using PersonStatisticsAPI.Data;
 using PersonStatisticsAPI.Data.Db;
 using PersonStatisticsAPI.Data.Interfaces;
 using PersonStatisticsAPI.Helpers;
+using PersonStatisticsAPI.Interfaces;
+using PersonStatisticsAPI.Services;
 
 namespace PersonStatisticsAPI.Extensions
 {
@@ -16,13 +18,16 @@ namespace PersonStatisticsAPI.Extensions
             services.AddDbContext<AppliacationDbContext>(option =>
                 option.UseSqlServer(config.GetConnectionString("DefaultConnection"),
                 settings => settings.EnableRetryOnFailure().CommandTimeout(60)));
-            
+            services.AddCors();
             IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddSingleton(mapper);
-            services.AddTransient<IPersonManager, PersonManager>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddTransient<IPackManager, PackManager>();
+            services.AddScoped<IPackRepository, PackRepository>();
             //services.AddSingleton<IPersonRepository, PersonRepository>();
-            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddTransient<IUserManager, UserManager>();
+            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
     }

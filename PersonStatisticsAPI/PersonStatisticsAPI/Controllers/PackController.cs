@@ -4,22 +4,22 @@ using PersonStatisticsAPI.Business.Interfaces;
 using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI;
-public class PersonController : BaseApiController
+public class PackController : BaseApiController
 {
-    private readonly IPersonManager _personManager;
+    private readonly IPackManager _packManager;
 
-    public PersonController(IPersonManager personManager)
+    public PackController(IPackManager personManager)
     {
-        _personManager = personManager;
+        _packManager = personManager;
     }
 
     [HttpGet("{id}")]
     public IActionResult Get(int id)
     {
-        HttpModelResult modelResult = _personManager.Get(id);
+        HttpModelResult modelResult = _packManager.Get(id);
         if (modelResult.HttpStatus == HttpStatusCode.OK)
         {
-            Person person = modelResult.Model as Person;
+            Pack person = modelResult.Model as Pack;
             return Ok(person);
         }
 
@@ -34,9 +34,9 @@ public class PersonController : BaseApiController
 
     [Route("")]
     [HttpPost]
-    public IActionResult Post([FromBody] Person person)
+    public IActionResult Post([FromBody] Pack person)
     {
-        HttpModelResult modelResult = _personManager.Add(person);
+        HttpModelResult modelResult = _packManager.Add(person);
         if (modelResult.HttpStatus == HttpStatusCode.Created)
         {
             //_db.Add(person);
@@ -51,9 +51,9 @@ public class PersonController : BaseApiController
 
     [Route("{id}")]
     [HttpPut]
-    public IActionResult Put(int id,[FromBody] Person person)
+    public IActionResult Put(int id,[FromBody] Pack person)
     {
-        HttpModelResult modelResult = _personManager.Update(person, id);
+        HttpModelResult modelResult = _packManager.Update(person, id);
         if(modelResult.HttpStatus == HttpStatusCode.Created) 
         {
             return new CreatedResult(
@@ -68,7 +68,7 @@ public class PersonController : BaseApiController
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        HttpModelResult modelResult = _personManager.Delete(id);
+        HttpModelResult modelResult = _packManager.Delete(id);
         return new StatusCodeResult((int)modelResult.HttpStatus);
     }
 
@@ -76,7 +76,7 @@ public class PersonController : BaseApiController
     [HttpGet]
     public IActionResult Get()
     {
-        HttpModelResult modelResult = _personManager.GetAll();
+        HttpModelResult modelResult = _packManager.GetAll();
         return Ok(modelResult.Models);
     }
 }

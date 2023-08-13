@@ -3,11 +3,12 @@ using PersonStatisticsAPI.Business.Interfaces;
 using PersonStatisticsAPI.Data.Interfaces;
 using PersonStatisticsAPI.DataModels.DTOs;
 using PersonStatisticsAPI.Models;
+using PersonStatisticsAPI.Models.Models;
 using System.Net;
 
 namespace PersonStatisticsAPI.Business.Managers
 {
-    internal class UserManager : IUserManager
+    public class UserManager : IUserManager
     {
         private readonly IUserRepository _userRepository;
         private readonly IMapper _mapper;
@@ -18,12 +19,19 @@ namespace PersonStatisticsAPI.Business.Managers
             _mapper = mapper;
         }
 
-        public HttpModelResult Add(BaseModel baseModel)
+        public async Task<HttpModelResult> Add(RegisterDto registerDto)
         {
             HttpModelResult result = new HttpModelResult();
-            if(_userRepository.Get(baseModel.Name) == null)
+            if (await _userRepository.Get(registerDto.UserName) == null)
             {
-                //TODO Create
+                var userDto = await _userRepository.Post(registerDto);
+                if (userDto != null)
+                {
+                    
+                    var user = _mapper.Map<UserDto, User>(userDto);
+                    result.HttpStatus = HttpStatusCode.Created;
+                    result.Model = user;
+                }
             }
             else
             {
@@ -34,11 +42,10 @@ namespace PersonStatisticsAPI.Business.Managers
             return result;
         }
 
-        public async Task<HttpModelResult> IsExists(BaseModel user)
+        public async Task<HttpModelResult> IsExists(RegisterDto registerDto)
         {
             HttpModelResult result = new HttpModelResult();
-            UserDto userDto = _mapper.Map<BaseModel, UserDto>(user);
-            if (await _userRepository.UserExists(userDto.Login)) 
+            if (await _userRepository.UserExists(registerDto.UserName)) 
             {
                 //Username is taken
                 result.HttpStatus = HttpStatusCode.BadRequest;

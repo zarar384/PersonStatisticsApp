@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using MediaBrowser.Model.Dto;
 using Microsoft.AspNetCore.Mvc;
 using PersonStatisticsAPI.Business.Interfaces;
 using PersonStatisticsAPI.DataModels.DTOs;
@@ -12,19 +11,19 @@ namespace PersonStatisticsAPI.Controllers
 {
     public class AccountController : BaseApiController
     {
-        private readonly ITokenService _tokenService;
         private readonly IUserManager _userManager;
         private readonly IMapper _mapper;
+        private readonly ITokenService _tokenService;
 
-        public AccountController(ITokenService tokenService, IUserManager userManager, IMapper mapper)
+        public AccountController(IUserManager userManager, IMapper mapper, ITokenService tokenService)
         {
-            _tokenService = tokenService;
             _userManager = userManager;
             _mapper = mapper;
+            _tokenService = tokenService;
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] User user)
+        public async Task<IActionResult> Register( RegisterDto user)
         {
             HttpModelResult result = new HttpModelResult();
             result = await _userManager.IsExists(user);
@@ -34,12 +33,16 @@ namespace PersonStatisticsAPI.Controllers
                 return BadRequest("Username is taken");
             }
 
-            result = _userManager.Add(user);
+            result = await _userManager.Add(user);
             if(result.HttpStatus == HttpStatusCode.Created) 
             {
+                var userModel = _mapper.Map<BaseModel, User>(result.Model);
+                var userDto = _mapper.Map<User, UserDto>(userModel);
+                userDto.Token = _tokenService.CreateToken(userModel);
+
                 return new CreatedResult(string.Format("/api/register/{0}", 
                                          result.Model.Id), 
-                                         result.Model);
+                                         userDto);
             }
 
             return new StatusCodeResult((int)result.HttpStatus);

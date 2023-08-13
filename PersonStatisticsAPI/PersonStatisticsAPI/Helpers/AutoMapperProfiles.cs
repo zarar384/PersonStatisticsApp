@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using PersonStatisticsAPI.DataModels;
+using PersonStatisticsAPI.DataModels.DTOs;
 using PersonStatisticsAPI.Models;
+using PersonStatisticsAPI.Models.Models;
 
 namespace PersonStatisticsAPI.Helpers
 {
@@ -11,7 +13,9 @@ namespace PersonStatisticsAPI.Helpers
             var mappingConfig = new MapperConfiguration(config =>
             {
                 config.CreateMap<BaseModel, BaseDto>().ReverseMap();
-                config.CreateMap<Person, PersonDto>().ReverseMap();
+                config.CreateMap<Pack, PackDto>().ReverseMap();
+                config.CreateMap<RegisterDto, User>();
+                config.CreateMap<User, UserDto>().ReverseMap();
             });
 
             return mappingConfig;

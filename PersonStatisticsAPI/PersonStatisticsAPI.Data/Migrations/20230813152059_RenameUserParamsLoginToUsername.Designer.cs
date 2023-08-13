@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PersonStatisticsAPI.Data.Db;
 
@@ -11,9 +12,11 @@ using PersonStatisticsAPI.Data.Db;
 namespace PersonStatisticsAPI.Data.Migrations
 {
     [DbContext(typeof(AppliacationDbContext))]
-    partial class AppliacationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230813152059_RenameUserParamsLoginToUsername")]
+    partial class RenameUserParamsLoginToUsername
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,11 +41,6 @@ namespace PersonStatisticsAPI.Data.Migrations
 
                     b.Property<DateTime>("LastActive")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
 
                     b.Property<byte[]>("PasswordHash")
                         .IsRequired()

@@ -1,17 +1,16 @@
 ﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Microsoft.EntityFrameworkCore;
 using PersonStatisticsAPI.Data.Db;
 using PersonStatisticsAPI.Data.Interfaces;
 using PersonStatisticsAPI.DataModels.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using PersonStatisticsAPI.Models.Models;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace PersonStatisticsAPI.Data
 {
-    internal class UserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private readonly AppliacationDbContext _context;
         private readonly IMapper _mapper;
@@ -22,21 +21,43 @@ namespace PersonStatisticsAPI.Data
             _mapper = mapper;
         }
 
-        public UserDto Get(int id)
+        public async Task<UserDto> Get(int id)
         {
-            var user = _context.Users.Where(x => x.Id == id).FirstOrDefault();
-            return _mapper.Map<UserDto>(user);
+            return await _context.Users.Where(x => x.Id == id)
+                .ProjectTo<UserDto>(_mapper.ConfigurationProvider)
+                .FirstOrDefaultAsync();
         }
 
-        public UserDto Get(string login)
+        public async Task<UserDto> Get(string login)
         {
-            var user = _context.Users.Where(x => x.Login == login.ToLower()).FirstOrDefault();
-            return _mapper.Map<UserDto>(user);
+            return await _context.Users.Where(x => x.UserName == login.ToLower())
+                .ProjectTo<UserDto>(_mapper.ConfigurationProvider)
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<UserDto> Post(RegisterDto registrDto)
+        {
+            var user = _mapper.Map<RegisterDto, User>(registrDto);
+
+            using var hmac = new HMACSHA512();
+
+            user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registrDto.Password));
+            user.PasswordSalt = hmac.Key;
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return new UserDto
+            {
+                UserName = user.UserName,
+                Name = user.Name,
+            };
         }
 
         public async Task<bool> UserExists(string login)
         {
-            return await  _context.Users.AnyAsync(x => x.Login == login.ToLower());
+            return await  _context.Users.AnyAsync(x => x.UserName == login.ToLower());
         }
+
     }
 }
