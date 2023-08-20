@@ -36,13 +36,14 @@ public class PackManager : IPackManager
     private HttpModelResult AddModel(BaseModel model)
     {
         HttpModelResult result = new HttpModelResult();
-        PackDto personDto = _mapper.Map<BaseModel, PackDto>(model);
+        PackDto packDto = _mapper.Map<BaseModel, PackDto>(model);
+
         try
         {
-            personDto = _packRepository.AddOrUpdate(personDto);
-            if (personDto != null)
+            packDto = _packRepository.AddOrUpdate(packDto);
+            if (packDto != null)
             {
-                Pack createPerson = _mapper.Map<Pack>(personDto);
+                Pack createPerson = _mapper.Map<Pack>(packDto);
                 result.Model = createPerson;
                 result.HttpStatus = HttpStatusCode.Created;
             }

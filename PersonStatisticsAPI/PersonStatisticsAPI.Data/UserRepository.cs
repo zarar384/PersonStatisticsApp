@@ -21,18 +21,26 @@ namespace PersonStatisticsAPI.Data
             _mapper = mapper;
         }
 
-        public async Task<UserDto> Get(int id)
+        public async Task<UserDto> GetMemberAsync(int id)
         {
             return await _context.Users.Where(x => x.Id == id)
                 .ProjectTo<UserDto>(_mapper.ConfigurationProvider)
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<UserDto> Get(string login)
+        public async Task<UserDto> GetMemberAsync(string username)
         {
-            return await _context.Users.Where(x => x.UserName == login.ToLower())
+            return await _context.Users
+                .Where(x => x.UserName == username)
                 .ProjectTo<UserDto>(_mapper.ConfigurationProvider)
-                .FirstOrDefaultAsync();
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task<User> GetUserAsync(string username)
+        {
+            return await _context.Users.SingleOrDefaultAsync(x => x.UserName == username);
+            //return await user.ProjectTo<UserDto>(_mapper.ConfigurationProvider)
+            //    .FirstOrDefaultAsync();
         }
 
         public async Task<UserDto> Post(RegisterDto registrDto)

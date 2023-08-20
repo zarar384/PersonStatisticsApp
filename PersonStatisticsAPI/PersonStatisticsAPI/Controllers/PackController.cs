@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity.Web;
 using PersonStatisticsAPI.Business.Interfaces;
+using PersonStatisticsAPI.Extensions;
 using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI;
@@ -8,9 +10,9 @@ public class PackController : BaseApiController
 {
     private readonly IPackManager _packManager;
 
-    public PackController(IPackManager personManager)
+    public PackController(IPackManager packManager)
     {
-        _packManager = personManager;
+        _packManager = packManager;
     }
 
     [HttpGet("{id}")]
@@ -19,8 +21,8 @@ public class PackController : BaseApiController
         HttpModelResult modelResult = _packManager.Get(id);
         if (modelResult.HttpStatus == HttpStatusCode.OK)
         {
-            Pack person = modelResult.Model as Pack;
-            return Ok(person);
+            Pack pack = modelResult.Model as Pack;
+            return Ok(pack);
         }
 
         switch (modelResult.HttpStatus)
@@ -34,14 +36,15 @@ public class PackController : BaseApiController
 
     [Route("")]
     [HttpPost]
-    public IActionResult Post([FromBody] Pack person)
+    public IActionResult Post([FromBody] Pack pack)
     {
-        HttpModelResult modelResult = _packManager.Add(person);
+        if (!string.IsNullOrEmpty(User.GetUsername())) return NotFound();
+
+        HttpModelResult modelResult = _packManager.Add(pack);
+
         if (modelResult.HttpStatus == HttpStatusCode.Created)
         {
-            //_db.Add(person);
-            //_db.SaveChanges();
-            return new CreatedResult(string.Format("/api/person/{0}",
+            return new CreatedResult(string.Format("/api/pack/{0}",
                                      modelResult.Model.Id),
                                      modelResult.Model);
         }
@@ -51,13 +54,13 @@ public class PackController : BaseApiController
 
     [Route("{id}")]
     [HttpPut]
-    public IActionResult Put(int id,[FromBody] Pack person)
+    public IActionResult Put(int id,[FromBody] Pack pack)
     {
-        HttpModelResult modelResult = _packManager.Update(person, id);
+        HttpModelResult modelResult = _packManager.Update(pack, id);
         if(modelResult.HttpStatus == HttpStatusCode.Created) 
         {
             return new CreatedResult(
-                string.Format("/api/person/{0}",
+                string.Format("/api/pack/{0}",
                 modelResult.Model.Id),
                 modelResult.Model);
         }

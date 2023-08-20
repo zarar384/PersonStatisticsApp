@@ -1,4 +1,5 @@
-﻿using System.Security.Claims;
+﻿using PersonStatisticsAPI.Controllers;
+using System.Security.Claims;
 
 namespace PersonStatisticsAPI.Extensions
 {

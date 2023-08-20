@@ -22,7 +22,7 @@ namespace PersonStatisticsAPI.Business.Managers
         public async Task<HttpModelResult> Add(RegisterDto registerDto)
         {
             HttpModelResult result = new HttpModelResult();
-            if (await _userRepository.Get(registerDto.UserName) == null)
+            if (await _userRepository.GetUserAsync(registerDto.UserName) == null)
             {
                 var userDto = await _userRepository.Post(registerDto);
                 if (userDto != null)
@@ -37,6 +37,42 @@ namespace PersonStatisticsAPI.Business.Managers
             {
                 result.HttpStatus = HttpStatusCode.Conflict;
                 return result;
+            }
+
+            return result;
+        }
+
+        public async Task<HttpModelResult> Get(int id)
+        {
+            HttpModelResult result = new HttpModelResult();
+            UserDto userDto = await _userRepository.GetMemberAsync(id);
+            
+            if(userDto == null)
+            {
+                result.HttpStatus = HttpStatusCode.BadRequest;
+            }
+            else
+            {
+                result.HttpStatus= HttpStatusCode.OK;
+                result.Model = _mapper.Map<User>(userDto);
+            }
+            
+            return result;
+        }
+
+        public async Task<HttpModelResult> Get(string username)
+        {
+            HttpModelResult result = new HttpModelResult();
+            User user = await _userRepository.GetUserAsync(username);
+
+            if (user == null)
+            {
+                result.HttpStatus = HttpStatusCode.BadRequest;
+            }
+            else
+            {
+                result.HttpStatus = HttpStatusCode.OK;
+                result.Model = _mapper.Map<User>(user);
             }
 
             return result;

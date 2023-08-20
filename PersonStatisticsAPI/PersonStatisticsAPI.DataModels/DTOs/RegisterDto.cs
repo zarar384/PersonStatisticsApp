@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PersonStatisticsAPI.DataModels.DTOs
+﻿namespace PersonStatisticsAPI.DataModels.DTOs
 {
     public class RegisterDto : BaseDto
     {
