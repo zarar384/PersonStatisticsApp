@@ -1,6 +1,7 @@
 using MediaBrowser.Model.Services;
 using Microsoft.OpenApi.Models;
 using PersonStatisticsAPI.Extensions;
+using PersonStatisticsAPI.Middleware;
 using PersonStatisticsAPI.Models.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,6 +32,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseMiddleware<ExceptionMiddleware>();
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebAPIv5 v1"));
 }
