@@ -23,7 +23,7 @@ namespace PersonStatisticsAPI.Tests
             //    Sex = "male"
             //};
 
-            //PackDto itemDtoData = new PackDto
+            //BoxDto itemDtoData = new BoxDto
             //{
             //    Id = 2,
             //    Name = "Ivan",
@@ -34,7 +34,7 @@ namespace PersonStatisticsAPI.Tests
 
             //var mockRepository = new Mock<IPersonRepository>();
             //mockRepository.Setup(repo => repo.Get(itemData.Id)).Returns(
-            //    new PackDto
+            //    new BoxDto
             //    {
             //        Id = 2,
             //        Name = "Ivan",
@@ -44,7 +44,7 @@ namespace PersonStatisticsAPI.Tests
             //    });
 
             //var mockMapper = new Mock<IMapper>();
-            //mockMapper.Setup(mapper => mapper.Map<PackDto, Pack>(itemDtoData)).Returns(
+            //mockMapper.Setup(mapper => mapper.Map<BoxDto, Pack>(itemDtoData)).Returns(
             //    new Pack
             //    {
             //        Id = itemDtoData.Id,

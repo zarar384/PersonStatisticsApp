@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
+﻿
 namespace PersonStatisticsAPI.Models
 {
     public class Box : BaseModel
@@ -14,6 +12,5 @@ namespace PersonStatisticsAPI.Models
         public User Owner { get; set; }
         public Category Category { get; set; }
         public ICollection<BoxRecipient> Recipients { get; set; }
-
     }
 }

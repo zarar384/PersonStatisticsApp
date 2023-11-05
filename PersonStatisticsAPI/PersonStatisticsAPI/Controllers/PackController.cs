@@ -8,20 +8,20 @@ using PersonStatisticsAPI.Models;
 namespace PersonStatisticsAPI;
 public class PackController : BaseApiController
 {
-    private readonly IPackManager _packManager;
+    private readonly IBoxManager _boxManager;
 
-    public PackController(IPackManager packManager)
+    public PackController(IBoxManager boxManager)
     {
-        _packManager = packManager;
+        _boxManager = boxManager;
     }
 
     [HttpGet("{id}")]
     public IActionResult Get(int id)
     {
-        HttpModelResult modelResult = _packManager.Get(id);
+        HttpModelResult modelResult = _boxManager.Get(id);
         if (modelResult.HttpStatus == HttpStatusCode.OK)
         {
-            Pack pack = modelResult.Model as Pack;
+            Box pack = modelResult.Model as Box;
             return Ok(pack);
         }
 
@@ -36,11 +36,11 @@ public class PackController : BaseApiController
 
     [Route("")]
     [HttpPost]
-    public IActionResult Post([FromBody] Pack pack)
+    public IActionResult Post([FromBody] Box pack)
     {
         if (!string.IsNullOrEmpty(User.GetUsername())) return NotFound();
 
-        HttpModelResult modelResult = _packManager.Add(pack);
+        HttpModelResult modelResult = _boxManager.Add(pack);
 
         if (modelResult.HttpStatus == HttpStatusCode.Created)
         {
@@ -54,10 +54,10 @@ public class PackController : BaseApiController
 
     [Route("{id}")]
     [HttpPut]
-    public IActionResult Put(int id,[FromBody] Pack pack)
+    public IActionResult Put(int id, [FromBody] Box pack)
     {
-        HttpModelResult modelResult = _packManager.Update(pack, id);
-        if(modelResult.HttpStatus == HttpStatusCode.Created) 
+        HttpModelResult modelResult = _boxManager.Update(pack, id);
+        if (modelResult.HttpStatus == HttpStatusCode.Created)
         {
             return new CreatedResult(
                 string.Format("/api/pack/{0}",
@@ -71,7 +71,7 @@ public class PackController : BaseApiController
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        HttpModelResult modelResult = _packManager.Delete(id);
+        HttpModelResult modelResult = _boxManager.Delete(id);
         return new StatusCodeResult((int)modelResult.HttpStatus);
     }
 
@@ -79,7 +79,7 @@ public class PackController : BaseApiController
     [HttpGet]
     public IActionResult Get()
     {
-        HttpModelResult modelResult = _packManager.GetAll();
+        HttpModelResult modelResult = _boxManager.GetAll();
         return Ok(modelResult.Models);
     }
 }

@@ -1,8 +1,8 @@
 ﻿namespace PersonStatisticsAPI.DataModels.DTOs
 {
-    public class UserDto: BaseDto
+    public class UserDto : BaseDto
     {
-        public string UserName { get; set; }
+        public string Username { get; set; }
         public string Token { get; set; }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {}
+    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {}
   },
   "projects": {
-    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
+    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
+        "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
         "projectName": "PersonStatisticsAPI.Business",
-        "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
+        "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\obj\\",
+        "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -38,8 +38,8 @@
               "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj": {
                 "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Data\\PersonStatisticsAPI.Data.csproj"
               },
-              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
-                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
+              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
               }
             }
           }
@@ -227,8 +227,8 @@
               "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
                 "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
               },
-              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
-                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
+              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
               }
             }
           }
@@ -292,14 +292,14 @@
         }
       }
     },
-    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
+        "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
         "projectName": "PersonStatisticsAPI.Models",
-        "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
+        "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\obj\\",
+        "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -392,14 +392,14 @@
         }
       }
     },
-    "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {
+    "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+        "projectUniqueName": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
         "projectName": "PersonStatisticsAPI",
-        "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
+        "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\PersonStatisticsAPI.csproj",
         "packagesPath": "C:\\Users\\Felix\\.nuget\\packages\\",
-        "outputPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\obj\\",
+        "outputPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -420,14 +420,14 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
-                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj"
+              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj": {
+                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Business\\PersonStatisticsAPI.Business.csproj"
               },
               "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj": {
                 "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.DataModels\\PersonStatisticsAPI.DataModels.csproj"
               },
-              "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
-                "projectPath": "D:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
+              "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj": {
+                "projectPath": "d:\\all\\NetCode\\PersonStatisticsApp\\PersonStatisticsAPI\\PersonStatisticsAPI.Models\\PersonStatisticsAPI.Models.csproj"
               }
             }
           }

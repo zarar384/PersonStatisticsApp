@@ -7,12 +7,12 @@ using PersonStatisticsAPI.Data.Interfaces;
 
 namespace PersonStatisticsAPI.Business.Managers;
 
-public class PackManager : IPackManager
+public class PackManager : IBoxManager
 {
-    private readonly IPackRepository _packRepository;
+    private readonly IBoxRepository _packRepository;
     private readonly IMapper _mapper;
 
-    public PackManager(IPackRepository dataStore, IMapper mapper)
+    public PackManager(IBoxRepository dataStore, IMapper mapper)
     {
         _packRepository = dataStore;
         _mapper = mapper;
@@ -21,7 +21,7 @@ public class PackManager : IPackManager
     public HttpModelResult Add(BaseModel model)
     {
         HttpModelResult result = new HttpModelResult();
-        if (_packRepository.Get(model.Name) == null)
+        if (_packRepository.Get(model.Id) == null)
         {
             result = AddModel(model);
         }
@@ -36,14 +36,14 @@ public class PackManager : IPackManager
     private HttpModelResult AddModel(BaseModel model)
     {
         HttpModelResult result = new HttpModelResult();
-        PackDto packDto = _mapper.Map<BaseModel, PackDto>(model);
+        BoxDto boxDto = _mapper.Map<BaseModel, BoxDto>(model);
 
         try
         {
-            packDto = _packRepository.AddOrUpdate(packDto);
-            if (packDto != null)
+            boxDto = _packRepository.AddOrUpdate(boxDto);
+            if (boxDto != null)
             {
-                Pack createPerson = _mapper.Map<Pack>(packDto);
+                Box createPerson = _mapper.Map<Box>(boxDto);
                 result.Model = createPerson;
                 result.HttpStatus = HttpStatusCode.Created;
             }
@@ -71,7 +71,7 @@ public class PackManager : IPackManager
     public HttpModelResult Get(int id)
     {
         HttpModelResult result = new HttpModelResult();
-        PackDto personDto = _packRepository.Get(id);
+        BoxDto personDto = _packRepository.Get(id);
         if (personDto == null)
         {
             result.HttpStatus = HttpStatusCode.NotFound;
@@ -79,7 +79,7 @@ public class PackManager : IPackManager
         else
         {
             result.HttpStatus = HttpStatusCode.OK;
-            result.Model = _mapper.Map<Pack>(personDto);
+            result.Model = _mapper.Map<Box>(personDto);
         }
         return result;
     }
@@ -87,28 +87,28 @@ public class PackManager : IPackManager
     public HttpModelResult GetAll()
     {
         HttpModelResult result = new HttpModelResult();
-        IEnumerable<PackDto> dtos = _packRepository.GetAll();
-        List<Pack> persons= dtos.Select(dtos => _mapper.Map<Pack>(dtos)).ToList();
+        IEnumerable<BoxDto> dtos = _packRepository.GetAll();
+        List<Box> persons = dtos.Select(dtos => _mapper.Map<Box>(dtos)).ToList();
         result.Models = persons.AsEnumerable();
-        result.HttpStatus= HttpStatusCode.OK;
+        result.HttpStatus = HttpStatusCode.OK;
         return result;
     }
 
     public HttpModelResult Update(BaseModel model, int id)
     {
-        if(_packRepository.Get(id)== null)
+        if (_packRepository.Get(id) == null)
         {
             return Add(model);
         }
         else
         {
             model.Id = id;
-            PackDto dto = _mapper.Map<BaseModel,PackDto>(model);
+            BoxDto dto = _mapper.Map<BaseModel, BoxDto>(model);
             dto = _packRepository.AddOrUpdate(dto);
             return new HttpModelResult
             {
                 HttpStatus = HttpStatusCode.OK,
-                Model = _mapper.Map<Pack>(dto)
+                Model = _mapper.Map<Box>(dto)
             };
         }
     }

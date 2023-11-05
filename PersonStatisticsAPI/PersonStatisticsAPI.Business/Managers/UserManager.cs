@@ -3,7 +3,6 @@ using PersonStatisticsAPI.Business.Interfaces;
 using PersonStatisticsAPI.Data.Interfaces;
 using PersonStatisticsAPI.DataModels.DTOs;
 using PersonStatisticsAPI.Models;
-using PersonStatisticsAPI.Models.Models;
 using System.Net;
 
 namespace PersonStatisticsAPI.Business.Managers
@@ -27,7 +26,7 @@ namespace PersonStatisticsAPI.Business.Managers
                 var userDto = await _userRepository.Post(registerDto);
                 if (userDto != null)
                 {
-                    
+
                     var user = _mapper.Map<UserDto, User>(userDto);
                     result.HttpStatus = HttpStatusCode.Created;
                     result.Model = user;
@@ -46,17 +45,17 @@ namespace PersonStatisticsAPI.Business.Managers
         {
             HttpModelResult result = new HttpModelResult();
             UserDto userDto = await _userRepository.GetMemberAsync(id);
-            
-            if(userDto == null)
+
+            if (userDto == null)
             {
                 result.HttpStatus = HttpStatusCode.BadRequest;
             }
             else
             {
-                result.HttpStatus= HttpStatusCode.OK;
+                result.HttpStatus = HttpStatusCode.OK;
                 result.Model = _mapper.Map<User>(userDto);
             }
-            
+
             return result;
         }
 
@@ -81,7 +80,7 @@ namespace PersonStatisticsAPI.Business.Managers
         public async Task<HttpModelResult> IsExists(RegisterDto registerDto)
         {
             HttpModelResult result = new HttpModelResult();
-            if (await _userRepository.UserExists(registerDto.UserName)) 
+            if (await _userRepository.UserExists(registerDto.UserName))
             {
                 //Username is taken
                 result.HttpStatus = HttpStatusCode.BadRequest;

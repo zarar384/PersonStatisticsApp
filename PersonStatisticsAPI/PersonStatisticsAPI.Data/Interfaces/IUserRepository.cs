@@ -1,11 +1,5 @@
-﻿using PersonStatisticsAPI.DataModels;
-using PersonStatisticsAPI.DataModels.DTOs;
-using PersonStatisticsAPI.Models.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using PersonStatisticsAPI.DataModels.DTOs;
+using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI.Data.Interfaces
 {

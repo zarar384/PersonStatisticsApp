@@ -10,8 +10,8 @@ using PersonStatisticsAPI.Data.Db;
 
 namespace PersonStatisticsAPI.Data.Migrations
 {
-    [DbContext(typeof(AppliacationDbContext))]
-    partial class AppliacationDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AppDbContext))]
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

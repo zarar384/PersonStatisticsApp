@@ -1,7 +1,7 @@
 ﻿using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI.Business.Interfaces;
-public interface IPackManager
+public interface IBoxManager
 {
     HttpModelResult Add(BaseModel model);
     HttpModelResult Update(BaseModel model, int id);

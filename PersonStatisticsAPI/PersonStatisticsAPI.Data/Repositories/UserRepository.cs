@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using PersonStatisticsAPI.Data.Db;
 using PersonStatisticsAPI.Data.Interfaces;
 using PersonStatisticsAPI.DataModels.DTOs;
-using PersonStatisticsAPI.Models.Models;
+using PersonStatisticsAPI.Models;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -12,10 +12,10 @@ namespace PersonStatisticsAPI.Data
 {
     public class UserRepository : IUserRepository
     {
-        private readonly AppliacationDbContext _context;
+        private readonly AppDbContext _context;
         private readonly IMapper _mapper;
 
-        public UserRepository(AppliacationDbContext context, IMapper mapper)
+        public UserRepository(AppDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -31,14 +31,14 @@ namespace PersonStatisticsAPI.Data
         public async Task<UserDto> GetMemberAsync(string username)
         {
             return await _context.Users
-                .Where(x => x.UserName == username)
+                .Where(x => x.Username == username)
                 .ProjectTo<UserDto>(_mapper.ConfigurationProvider)
                 .SingleOrDefaultAsync();
         }
 
         public async Task<User> GetUserAsync(string username)
         {
-            return await _context.Users.SingleOrDefaultAsync(x => x.UserName == username);
+            return await _context.Users.SingleOrDefaultAsync(x => x.Username == username);
             //return await user.ProjectTo<UserDto>(_mapper.ConfigurationProvider)
             //    .FirstOrDefaultAsync();
         }
@@ -57,14 +57,13 @@ namespace PersonStatisticsAPI.Data
 
             return new UserDto
             {
-                UserName = user.UserName,
-                Name = user.Name,
+                Username = user.Username,
             };
         }
 
-        public async Task<bool> UserExists(string login)
+        public async Task<bool> UserExists(string username)
         {
-            return await  _context.Users.AnyAsync(x => x.UserName == login.ToLower());
+            return await _context.Users.AnyAsync(x => x.Username == username);
         }
 
     }

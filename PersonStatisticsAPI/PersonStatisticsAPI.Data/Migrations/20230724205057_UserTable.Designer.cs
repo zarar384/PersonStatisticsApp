@@ -11,7 +11,7 @@ using PersonStatisticsAPI.Data.Db;
 
 namespace PersonStatisticsAPI.Data.Migrations
 {
-    [DbContext(typeof(AppliacationDbContext))]
+    [DbContext(typeof(AppDbContext))]
     [Migration("20230724205057_UserTable")]
     partial class UserTable
     {

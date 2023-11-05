@@ -1,4 +1,4 @@
-﻿using PersonStatisticsAPI.Models.Models;
+﻿using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI.Interfaces
 {
