@@ -1,9 +1,9 @@
 ﻿using PersonStatisticsAPI.Models.Extensions;
 using System.Text.Json.Serialization;
 
-namespace PersonStatisticsAPI.Models.Models
+namespace PersonStatisticsAPI.Models
 {
-    public class User: BaseModel
+    public class User : BaseModel
     {
         public string UserName { get; set; }
         public byte[] PasswordHash { get; set; }
@@ -12,7 +12,5 @@ namespace PersonStatisticsAPI.Models.Models
         public DateOnly DateOfBirth { get; set; }
         public DateTime Created { get; set; } = DateTime.UtcNow;
         public DateTime LastActive { get; set; } = DateTime.UtcNow;
-
-        public List<Pack> Pack { get; set; }
     }
 }
