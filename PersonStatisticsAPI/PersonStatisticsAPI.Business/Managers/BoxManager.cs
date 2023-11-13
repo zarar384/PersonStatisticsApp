@@ -7,21 +7,21 @@ using PersonStatisticsAPI.Data.Interfaces;
 
 namespace PersonStatisticsAPI.Business.Managers;
 
-public class BoxManager : IBoxManager
+public class PackManager : IBoxManager
 {
-    private readonly IBoxRepository _boxRepository;
+    private readonly IBoxRepository _packRepository;
     private readonly IMapper _mapper;
 
-    public BoxManager(IBoxRepository dataStore, IMapper mapper)
+    public PackManager(IBoxRepository dataStore, IMapper mapper)
     {
-        _boxRepository = dataStore;
+        _packRepository = dataStore;
         _mapper = mapper;
     }
 
     public HttpModelResult Add(BaseModel model)
     {
         HttpModelResult result = new HttpModelResult();
-        if (_boxRepository.Get(model.Id) == null)
+        if (_packRepository.Get(model.Id) == null)
         {
             result = AddModel(model);
         }
@@ -30,7 +30,6 @@ public class BoxManager : IBoxManager
             result.HttpStatus = HttpStatusCode.Conflict;
             return result;
         }
-
         return result;
     }
 
@@ -41,8 +40,7 @@ public class BoxManager : IBoxManager
 
         try
         {
-            boxDto = _boxRepository.AddOrUpdate(boxDto);
-            
+            boxDto = _packRepository.AddOrUpdate(boxDto);
             if (boxDto != null)
             {
                 Box createPerson = _mapper.Map<Box>(boxDto);
@@ -65,7 +63,7 @@ public class BoxManager : IBoxManager
     public HttpModelResult Delete(int id)
     {
         HttpModelResult result = new HttpModelResult();
-        BaseDto dto = _boxRepository.Delete(id);
+        BaseDto dto = _packRepository.Delete(id);
         result.HttpStatus = dto == null ? HttpStatusCode.NoContent : HttpStatusCode.OK;
         return result;
     }
@@ -73,7 +71,7 @@ public class BoxManager : IBoxManager
     public HttpModelResult Get(int id)
     {
         HttpModelResult result = new HttpModelResult();
-        BoxDto personDto = _boxRepository.Get(id);
+        BoxDto personDto = _packRepository.Get(id);
         if (personDto == null)
         {
             result.HttpStatus = HttpStatusCode.NotFound;
@@ -89,7 +87,7 @@ public class BoxManager : IBoxManager
     public HttpModelResult GetAll()
     {
         HttpModelResult result = new HttpModelResult();
-        IEnumerable<BoxDto> dtos = _boxRepository.GetAll();
+        IEnumerable<BoxDto> dtos = _packRepository.GetAll();
         List<Box> persons = dtos.Select(dtos => _mapper.Map<Box>(dtos)).ToList();
         result.Models = persons.AsEnumerable();
         result.HttpStatus = HttpStatusCode.OK;
@@ -98,7 +96,7 @@ public class BoxManager : IBoxManager
 
     public HttpModelResult Update(BaseModel model, int id)
     {
-        if (_boxRepository.Get(id) == null)
+        if (_packRepository.Get(id) == null)
         {
             return Add(model);
         }
@@ -106,7 +104,7 @@ public class BoxManager : IBoxManager
         {
             model.Id = id;
             BoxDto dto = _mapper.Map<BaseModel, BoxDto>(model);
-            dto = _boxRepository.AddOrUpdate(dto);
+            dto = _packRepository.AddOrUpdate(dto);
             return new HttpModelResult
             {
                 HttpStatus = HttpStatusCode.OK,

@@ -20,6 +20,7 @@ public class BoxRepository : IBoxRepository
     public BoxDto AddOrUpdate(BoxDto dto)
     {
         Box box = _mapper.Map<BoxDto, Box>(dto);
+
         if (dto.Id > 0)
         {
             _db.Boxes.Update(box);
@@ -36,6 +37,7 @@ public class BoxRepository : IBoxRepository
     public BoxDto Delete(int id)
     {
         Box box = _db.Boxes.FirstOrDefault(x => x.Id == id);
+
         if (box != null)
         {
             _db.Boxes.Remove(box);

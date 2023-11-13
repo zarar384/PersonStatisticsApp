@@ -8,7 +8,7 @@
 /bazel-out
 
 # dependencies
-/node_modules
+PersonStatisticsWeb/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -41,7 +41,8 @@ xcuserdata/
 /PersonStatisticsAPI/.vs/
 
 # misc
-/.angular/cache
+PersonStatisticsWeb/.angular/cache
+PersonStatisticsWeb/node_modules/
 /.sass-cache
 /connect.lock
 /coverage
@@ -83,3 +84,4 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
+PersonStatisticsAPI/PersonStatisticsAPI/obj/

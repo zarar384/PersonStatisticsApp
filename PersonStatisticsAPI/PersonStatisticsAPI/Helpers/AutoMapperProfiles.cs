@@ -2,7 +2,6 @@
 using PersonStatisticsAPI.DataModels;
 using PersonStatisticsAPI.DataModels.DTOs;
 using PersonStatisticsAPI.Models;
-using PersonStatisticsAPI.Models;
 
 namespace PersonStatisticsAPI.Helpers
 {
@@ -13,7 +12,9 @@ namespace PersonStatisticsAPI.Helpers
             var mappingConfig = new MapperConfiguration(config =>
             {
                 config.CreateMap<BaseModel, BaseDto>().ReverseMap();
-                config.CreateMap<Box, BoxDto>().ReverseMap();
+                config.CreateMap<Box, BoxDto>().ForMember(dest => dest.OwnerUsername, opt => opt.MapFrom(src => src.Owner.Username))
+                .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
+                config.CreateMap<BoxDto, Box>();
                 config.CreateMap<RegisterDto, User>();
                 config.CreateMap<User, UserDto>().ReverseMap();
             });

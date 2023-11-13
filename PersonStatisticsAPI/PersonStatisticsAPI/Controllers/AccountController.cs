@@ -4,7 +4,6 @@ using PersonStatisticsAPI.Business.Interfaces;
 using PersonStatisticsAPI.DataModels.DTOs;
 using PersonStatisticsAPI.Interfaces;
 using PersonStatisticsAPI.Models;
-using PersonStatisticsAPI.Models;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
