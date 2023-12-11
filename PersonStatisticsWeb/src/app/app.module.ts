@@ -13,8 +13,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { TextfieldChangedDirective } from './shared/textfield-changed.directive';
-import { WeaponComponent } from './rolePlayForm/weapon/weapon.component';
-import { RaceComponent } from './rolePlayForm/race/race.component';
+import { RegisterComponent } from './register/register.component';
+import { TextInputComponent } from './_forms/text-input/text-input.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,8 @@ import { RaceComponent } from './rolePlayForm/race/race.component';
     NavComponent,
     TablePersonComponent,
     TextfieldChangedDirective,
-    WeaponComponent,
-    RaceComponent,
+    RegisterComponent,
+    TextInputComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,8 @@ import { RaceComponent } from './rolePlayForm/race/race.component';
     BrowserAnimationsModule,
     MatDialogModule,
     MatTableModule,
+    FontAwesomeModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

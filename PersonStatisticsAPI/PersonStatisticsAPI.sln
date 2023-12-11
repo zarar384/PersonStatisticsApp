@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonStatisticsAPI.Data", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonStatisticsAPI.DataModels", "PersonStatisticsAPI.DataModels\PersonStatisticsAPI.DataModels.csproj", "{B20A30B7-9594-4EF1-938D-DAB8549BAD9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonStatisticsAPI.Tests", "PersonStatisticsAPI.Tests\PersonStatisticsAPI.Tests.csproj", "{6E12D1D1-1C5A-47ED-839E-56BCF751EB18}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6AC03B61-5E00-4FB6-9701-71CC2D0700B4} = {6AC03B61-5E00-4FB6-9701-71CC2D0700B4}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +44,10 @@ Global
 		{B20A30B7-9594-4EF1-938D-DAB8549BAD9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B20A30B7-9594-4EF1-938D-DAB8549BAD9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B20A30B7-9594-4EF1-938D-DAB8549BAD9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E12D1D1-1C5A-47ED-839E-56BCF751EB18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E12D1D1-1C5A-47ED-839E-56BCF751EB18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E12D1D1-1C5A-47ED-839E-56BCF751EB18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E12D1D1-1C5A-47ED-839E-56BCF751EB18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,7 +8,11 @@
 /bazel-out
 
 # dependencies
+<<<<<<< HEAD
 ../PersonStatisticsWeb/node_modules
+=======
+PersonStatisticsWeb/node_modules
+>>>>>>> 628e7ec660819fd378f7dda2839b0fe94b109f55
 
 # profiling files
 chrome-profiler-events*.json
@@ -85,4 +89,7 @@ obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 PersonStatisticsAPI/PersonStatisticsAPI/obj/
+<<<<<<< HEAD
 PersonStatisticsAPI/PersonStatisticsAPI.Data/obj/Debug/net7.0/PersonStatisticsAPI.Data.pdb
+=======
+>>>>>>> 628e7ec660819fd378f7dda2839b0fe94b109f55

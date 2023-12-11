@@ -10,8 +10,8 @@ using PersonStatisticsAPI.Data.Db;
 
 namespace PersonStatisticsAPI.Data.Migrations
 {
-    [DbContext(typeof(AppliacationDbContext))]
-    partial class AppliacationDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(AppDbContext))]
+    partial class AppDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -22,7 +22,7 @@ namespace PersonStatisticsAPI.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("PersonStatisticsAPI.Models.Person", b =>
+            modelBuilder.Entity("PersonStatisticsAPI.Models.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -30,32 +30,80 @@ namespace PersonStatisticsAPI.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Dr")
+                    b.Property<DateTime>("Created")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Mail")
-                        .IsRequired()
-                        .HasMaxLength(32)
-                        .HasColumnType("nvarchar(32)");
+                    b.Property<DateTime>("DateOfBirth")
+                        .HasColumnType("date");
+
+                    b.Property<DateTime>("LastActive")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(32)
                         .HasColumnType("nvarchar(32)");
 
-                    b.Property<string>("Phone")
+                    b.Property<byte[]>("PasswordHash")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("varbinary(max)");
 
-                    b.Property<string>("Sex")
+                    b.Property<byte[]>("PasswordSalt")
                         .IsRequired()
-                        .HasMaxLength(15)
-                        .HasColumnType("nvarchar(15)");
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Persons", (string)null);
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("PersonStatisticsAPI.Models.Pack", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Dc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(32)
+                        .HasColumnType("nvarchar(32)");
+
+                    b.Property<int>("User")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Packs");
+                });
+
+            modelBuilder.Entity("PersonStatisticsAPI.Models.Pack", b =>
+                {
+                    b.HasOne("PersonStatisticsAPI.Models.Models.User", null)
+                        .WithMany("Pack")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("PersonStatisticsAPI.Models.Models.User", b =>
+                {
+                    b.Navigation("Pack");
                 });
 #pragma warning restore 612, 618
         }
