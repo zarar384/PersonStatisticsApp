@@ -1,11 +1,31 @@
-import { Component } from '@angular/core';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { LogInFormComponent } from '../log-in-form/log-in-form.component';
+import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css'],
 })
-export class NavComponent {
-  faUser = faUser;
+export class NavComponent implements OnInit {
+  isLoggedIn: boolean = false;
+
+  constructor(private modalService: NgbModal) {}
+
+  ngOnInit(): void {}
+
+  openLogInForm() {
+    const modal: NgbModalRef = this.modalService.open(LogInFormComponent, {
+      ariaLabelledBy: 'modal-basic-title',
+    });
+
+    modal.result.then(
+      (res) => {
+        console.log('LogInFormComponent is closed');
+      },
+      (reason) => {
+        console.log('Are you sure you want to close the LogInForm component?');
+      }
+    );
+  }
 }

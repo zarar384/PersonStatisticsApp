@@ -1,0 +1,31 @@
+<div class="modal-dialog modal-dialog-centered modal-login">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div class="avatar">
+                <img src="assets/img/cat.ico" alt="Avatar">
+            </div>
+            <h4 class="modal-title">Member Login</h4>
+            <button type="button" class="close" aria-label="Close" (click)="closeLogInForm()">
+                <span aria-hidden="true" class="close-text">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form (ngSubmit)="closeLogInForm()">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="username" placeholder="Username" required
+                        autocomplete="current-username">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" placeholder="Password" required
+                        autocomplete="current-password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#">Forgot Password?</a>
+        </div>
+    </div>
+</div>

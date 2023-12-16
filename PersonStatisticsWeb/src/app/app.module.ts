@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PersonComponent } from './regForm/person/person.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdvanceComponent } from './regForm/advance/advance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -17,6 +17,7 @@ import { RegisterComponent } from './register/register.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { LogInFormComponent } from './log-in-form/log-in-form.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     TextfieldChangedDirective,
     RegisterComponent,
     TextInputComponent,
+    LogInFormComponent,
   ],
   imports: [
     BrowserModule,
