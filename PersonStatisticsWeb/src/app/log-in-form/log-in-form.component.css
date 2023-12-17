@@ -8,6 +8,7 @@ body {
 	font-family: 'Varela Round', sans-serif;
 }
 
+.modal-body .sign-up,
 .modal-body form .form-group,
 .modal-body form .form-group button {
   width: 100%;
@@ -15,6 +16,11 @@ body {
   border-radius: 4px;
 }
 
+.modal-body .sign-up a{
+	text-decoration: none;
+	color:blue;
+	cursor: pointer;
+}
 .modal-login  {		
 	color: #636363;
 	width: 450px;

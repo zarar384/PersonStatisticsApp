@@ -13,11 +13,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { TextfieldChangedDirective } from './shared/textfield-changed.directive';
-import { RegisterComponent } from './register/register.component';
 import { TextInputComponent } from './_forms/text-input/text-input.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { LogInFormComponent } from './log-in-form/log-in-form.component';
+import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +27,9 @@ import { LogInFormComponent } from './log-in-form/log-in-form.component';
     NavComponent,
     TablePersonComponent,
     TextfieldChangedDirective,
-    RegisterComponent,
     TextInputComponent,
     LogInFormComponent,
+    SignUpFormComponent,
   ],
   imports: [
     BrowserModule,
