@@ -8,7 +8,6 @@
 /bazel-out
 
 # dependencies
-PersonStatisticsWeb/node_modules
 
 # profiling files
 chrome-profiler-events*.json
@@ -38,11 +37,8 @@ xcuserdata/
 !.vscode/extensions.json
 .history/*
 
-/PersonStatisticsAPI/.vs/
 
 # misc
-PersonStatisticsWeb/.angular/cache
-PersonStatisticsWeb/node_modules/
 /.sass-cache
 /connect.lock
 /coverage
@@ -84,8 +80,9 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
+PersonStatisticsAPI/.vs/
+PersonStatisticsWeb/.angular/
 PersonStatisticsAPI/PersonStatisticsAPI/obj/
-<<<<<<< HEAD
-PersonStatisticsAPI/PersonStatisticsAPI.Data/obj/Debug/net7.0/PersonStatisticsAPI.Data.pdb
-=======
->>>>>>> 628e7ec660819fd378f7dda2839b0fe94b109f55
+PersonStatisticsWeb/node_modules/
+PersonStatisticsAPI/PersonStatisticsAPI.Data/Migrations/
+PersonStatisticsAPI/PersonStatisticsAPI/bin/
