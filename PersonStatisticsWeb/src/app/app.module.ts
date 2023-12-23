@@ -5,7 +5,7 @@ import { PersonComponent } from './regForm/person/person.component';
 import { NgbActiveModal, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AdvanceComponent } from './regForm/advance/advance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TablePersonComponent } from './regForm/table-person/table-person.component';
@@ -18,6 +18,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { LogInFormComponent } from './log-in-form/log-in-form.component';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function httpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -43,6 +49,13 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
     MatTableModule,
     FontAwesomeModule,
     BsDropdownModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpLoaderFactory,
+        deps: [HttpClient],
+      },
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

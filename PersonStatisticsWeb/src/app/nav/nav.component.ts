@@ -1,6 +1,8 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { LogInFormComponent } from '../log-in-form/log-in-form.component';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
+import { Subscription } from 'rxjs';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,9 +12,16 @@ import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 export class NavComponent implements OnInit {
   isLoggedIn: boolean = false;
 
-  constructor(private modalService: NgbModal) {}
+  constructor(
+    private modalService: NgbModal,
+    private languageService: LanguageService
+  ) {}
 
   ngOnInit(): void {}
+
+  switchLanguage(language: string) {
+    this.languageService.setLanguage(language);
+  }
 
   openLogInForm() {
     const modal: NgbModalRef = this.modalService.open(LogInFormComponent, {
