@@ -27,7 +27,6 @@ export class LogInFormComponent implements OnInit {
 
   openSignUpForm() {
     this.closeLogInForm();
-
     const modal: NgbModalRef = this.modalService.open(SignUpFormComponent);
 
     //modal.result..
