@@ -1,15 +1,17 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { LogInFormComponent } from '../log-in-form/log-in-form.component';
+import { LogInFormComponent } from '../../log-in-form/log-in-form.component';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { LanguageService } from 'src/app/services/language.service';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-nav',
-  templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.css'],
+  selector: 'app-nav-bar',
+  templateUrl: './nav-bar.component.html',
+  styleUrls: ['./nav-bar.component.css'],
 })
-export class NavComponent implements OnInit {
+export class NavBarComponent implements OnInit {
   isLoggedIn: boolean = false;
+  isSidebarExpanded: boolean = false;
 
   constructor(
     private modalService: NgbModal,
@@ -26,8 +28,7 @@ export class NavComponent implements OnInit {
     const modal: NgbModalRef = this.modalService.open(LogInFormComponent, {
       ariaLabelledBy: 'modal-basic-title',
     });
-    var t = '42';
-    t.toInt();
+
     modal.result.then(
       (res) => {
         console.log('LogInFormComponent is closed');
@@ -36,5 +37,9 @@ export class NavComponent implements OnInit {
         console.log('Are you sure you want to close the LogInForm component?');
       }
     );
+  }
+
+  toggleSidebar(): void {
+    this.isSidebarExpanded = !this.isSidebarExpanded;
   }
 }

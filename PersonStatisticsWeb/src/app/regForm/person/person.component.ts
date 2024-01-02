@@ -43,11 +43,11 @@ export class PersonComponent implements OnInit {
       Validators.maxLength(32),
       Validators.pattern(this.emailRegex),
     ]),
-    sex: new FormControl('', [
-      Validators.required,
-      Validators.maxLength(32),
-      this.clickOtherRadio,
-    ]),
+    // sex: new FormControl('', [
+    //   Validators.required,
+    //   Validators.maxLength(32),
+    //   this.clickOtherRadio,
+    // ]),
   });
 
   registerFn() {
@@ -57,7 +57,7 @@ export class PersonComponent implements OnInit {
       this.person.name = this.form.value.name as string;
       this.person.phone = this.form.value.phone as unknown as number;
       this.person.mail = this.form.value.email as string;
-      this.person.sex = this.form.value.sex as string;
+      // this.person.sex = this.form.value.sex as string;
       this.person.dr = new Date().toLocaleString() as unknown as Date;
 
       this.personService.postData(this.person).subscribe((response: any) => {

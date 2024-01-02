@@ -1,0 +1,9 @@
+.sidebar-component {
+    width: 0;
+    overflow: hidden;
+    transition: width 0.3s ease; 
+}
+
+.sidebar-component.expanded {
+    width: 250px; 
+}
