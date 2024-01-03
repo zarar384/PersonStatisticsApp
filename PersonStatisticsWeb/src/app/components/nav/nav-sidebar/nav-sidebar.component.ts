@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
   templateUrl: './nav-sidebar.component.html',
   styleUrl: './nav-sidebar.component.css',
 })
-export class NavSidebarComponent {}
+export class NavSidebarComponent {
+  activeBtn: string = '';
+
+  setActive(btnName: string) {
+    this.activeBtn = btnName;
+  }
+}

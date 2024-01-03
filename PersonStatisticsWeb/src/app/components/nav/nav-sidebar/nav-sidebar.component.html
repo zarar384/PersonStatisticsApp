@@ -1,6 +1,6 @@
 <nav class="nav flex-column sidebar-container">
     <div class="sidebar-main">
-        <a class="nav-link active" aria-current="page">Core</a>
+        <a class="nav-link disabled" aria-current="page">Core</a>
         <div ngbAccordion>
             <div ngbAccordionItem [collapsed]="true">
                 <h2 ngbAccordionHeader>
@@ -9,13 +9,23 @@
                 <div ngbAccordionCollapse>
                     <div ngbAccordionBody>
                         <ng-template>
-
+                            <div class="list-group list-group-flush">
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn==='btnHome'" (click)="setActive('btnHome')">Home</button>
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn === 'btnBlog'" (click)="setActive('btnBlog')">
+                                    Blog
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn === 'btnUsers'"
+                                    (click)="setActive('btnUsers')">Users</button>
+                            </div>
                         </ng-template>
                     </div>
                 </div>
             </div>
         </div>
-        <a class="nav-link active">Manage</a>
+        <a class="nav-link disabled">Manage</a>
         <div ngbAccordion>
             <div ngbAccordionItem [collapsed]="true">
                 <h2 ngbAccordionHeader>
@@ -24,7 +34,17 @@
                 <div ngbAccordionCollapse>
                     <div ngbAccordionBody>
                         <ng-template>
-
+                            <div class="list-group list-group-flush">
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn==='btnAll'" (click)="setActive('btnAll')">All</button>
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn === 'btnMine'" (click)="setActive('btnMine')">
+                                    Mine
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn === 'btnPopular'"
+                                    (click)="setActive('btnPopular')">Popular</button>
+                            </div>
                         </ng-template>
                     </div>
                 </div>
@@ -36,7 +56,21 @@
                 <div ngbAccordionCollapse>
                     <div ngbAccordionBody>
                         <ng-template>
-
+                            <div class="list-group list-group-flush">
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn === 'btnMain'" (click)="setActive('btnMain')">
+                                    Main
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn==='btnLog'" (click)="setActive('btnLog')">Log</button>
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn === 'btnBoxes'" (click)="setActive('btnBoxes')">
+                                    Boxes
+                                </button>
+                                <button type="button" class="list-group-item list-group-item-action"
+                                    [class.active]="activeBtn === 'btnAccounts'"
+                                    (click)="setActive('btnAccounts')">Accounts</button>
+                            </div>
                         </ng-template>
                     </div>
                 </div>
@@ -44,6 +78,6 @@
         </div>
     </div>
     <div class="sidebar-footer">
-        <a class="nav-link active">Logged in as:</a>
+        <a class="nav-link disabled">Logged in as:</a>
     </div>
 </nav>
