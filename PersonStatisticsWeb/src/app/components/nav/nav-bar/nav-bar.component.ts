@@ -11,7 +11,7 @@ import { faL } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavBarComponent implements OnInit {
   isLoggedIn: boolean = false;
-  isSidebarExpanded: boolean = false;
+  isCollapsed: boolean = true;
 
   constructor(
     private modalService: NgbModal,
@@ -40,6 +40,6 @@ export class NavBarComponent implements OnInit {
   }
 
   toggleSidebar(): void {
-    this.isSidebarExpanded = !this.isSidebarExpanded;
+    this.isCollapsed = !this.isCollapsed;
   }
 }

@@ -1,4 +1,4 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"
         (click)="toggleSidebar()">
         <i class="bi bi-layout-sidebar"></i>
@@ -26,6 +26,11 @@
         </div>
     </ng-template>
 </nav>
-<div class="sidebar-component" [ngClass]="{ 'expanded': isSidebarExpanded }">
-    <app-nav-sidebar></app-nav-sidebar>
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" [horizontal]="true"
+    style="max-width: 500px; position: fixed;">
+    <div class="card" style="width: 100%">
+        <div class="card-body">
+            <app-nav-sidebar></app-nav-sidebar>
+        </div>
+    </div>
 </div>

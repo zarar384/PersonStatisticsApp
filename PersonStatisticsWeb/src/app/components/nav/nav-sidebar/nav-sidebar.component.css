@@ -1,0 +1,9 @@
+nav.sidebar-container {
+    justify-content: space-between;
+    height: 95vh;
+    width: 300px;
+}
+
+li.nav-item{
+    margin-top: 5px;
+}
