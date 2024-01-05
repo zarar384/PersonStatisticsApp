@@ -6,6 +6,11 @@ import { TablePersonComponent } from './regForm/table-person/table-person.compon
 const routes: Routes = [
   { path: 'person', component: PersonComponent },
   { path: 'personTable', component: TablePersonComponent },
+  {
+    path: 'user',
+    pathMatch: 'prefix',
+    loadChildren: () => import('./user/user.module').then((m) => m.UserModule),
+  },
 ];
 
 @NgModule({
