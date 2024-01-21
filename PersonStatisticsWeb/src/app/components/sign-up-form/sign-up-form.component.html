@@ -2,29 +2,22 @@
     <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">Sign Up</h4>
-            <button type="button" class="close" aria-label="Close" (click)="closeSignInForm()">
+            <button type="button" class="close" aria-labelKey="Close" (click)="closeSignInForm()">
                 <span aria-hidden="true" class="close-text">&times;</span>
             </button>
         </div>
         <div class="modal-body">
             <form (ngSubmit)="closeSignInForm()">
-                <div class="form-group">
-                    <input type="text" class="form-control" name="username" placeholder="Username" required
-                        autocomplete="current-username" #usernameInput (input)="0">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password" required
-                        autocomplete="current-password" #passwordInput (input)="0">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control" name="confirmpassword" placeholder="Confirm Password"
-                        required autocomplete="current-password" #confirmPasswordInput (input)="0">
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block"
-                        [disabled]="!usernameInput.value || !passwordInput.value || !confirmPasswordInput.value">Sign
-                        Up</button>
-                </div>
+                <app-text-input [formControl]="$any(signUpForm.controls['username'])"
+                    [labelKey]="'Username'"></app-text-input>
+                <app-text-input [formControl]="$any(signUpForm.controls['nickname'])"
+                    [labelKey]="'Nickname'"></app-text-input>
+                <app-text-input [formControl]="$any(signUpForm.controls['dateOfBirth'])"
+                    [labelKey]="'DateOfBirth'"></app-text-input>
+                <app-text-input [formControl]="$any(signUpForm.controls['password'])"
+                    [labelKey]="'Password'"></app-text-input>
+                <app-text-input [formControl]="$any(signUpForm.controls['confirmPassword'])"
+                    [labelKey]="'ConfirmPassword'"></app-text-input>
             </form>
             <div class="sign-up">
                 <p>Already have an account? <a (click)="openLogInForm()">Login here</a></p>

@@ -1,5 +1,6 @@
 import { Component, Input, Self } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
+import { LanguageService } from 'src/app/services/language.service';
 
 @Component({
   selector: 'app-text-input',
@@ -7,10 +8,13 @@ import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
   styleUrls: ['./text-input.component.css'],
 })
 export class TextInputComponent implements ControlValueAccessor {
-  @Input() label = '';
+  @Input() labelKey = '';
   @Input() type = 'text';
 
-  constructor(@Self() public ngControl: NgControl) {
+  constructor(
+    private language: LanguageService,
+    @Self() public ngControl: NgControl
+  ) {
     this.ngControl.valueAccessor = this;
   }
 
@@ -21,5 +25,9 @@ export class TextInputComponent implements ControlValueAccessor {
 
   get control(): FormControl {
     return this.ngControl.control as FormControl;
+  }
+
+  get label(): string{
+    return this.language.toText(this.labelKey);
   }
 }

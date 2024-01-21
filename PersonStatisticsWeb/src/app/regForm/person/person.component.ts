@@ -6,8 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Person } from 'src/app/model/person.model';
-import { PersonService } from 'src/app/services/person.service';
+import { User } from 'src/models/user.interface';
 
 @Component({
   selector: 'app-person',
@@ -17,9 +16,9 @@ import { PersonService } from 'src/app/services/person.service';
 export class PersonComponent implements OnInit {
   isAdvance: boolean = false;
   otherCheck: string = 'Other';
-  person: Person = new Person();
+  person: User;
 
-  constructor(private personService: PersonService, private dilog: MatDialog) {
+  constructor(private dilog: MatDialog) {
     this.form;
   }
 
@@ -54,16 +53,16 @@ export class PersonComponent implements OnInit {
     if (this.form.status !== 'INVALID') {
       console.log(this.form.value);
 
-      this.person.name = this.form.value.name as string;
-      this.person.phone = this.form.value.phone as unknown as number;
-      this.person.mail = this.form.value.email as string;
-      // this.person.sex = this.form.value.sex as string;
-      this.person.dr = new Date().toLocaleString() as unknown as Date;
+      this.person.username = this.form.value.name as string;
+      // this.person.phone = this.form.value.phone as unknown as number;
+      // this.person.mail = this.form.value.email as string;
+      // // this.person.sex = this.form.value.sex as string;
+      // this.person.dr = new Date().toLocaleString() as unknown as Date;
 
-      this.personService.postData(this.person).subscribe((response: any) => {
-        console.log('Data inserted successfully');
-        this.ngOnInit();
-      });
+      // this.personService.postData(this.person).subscribe((response: any) => {
+      //   console.log('Data inserted successfully');
+      //   this.ngOnInit();
+      // });
     }
   }
 

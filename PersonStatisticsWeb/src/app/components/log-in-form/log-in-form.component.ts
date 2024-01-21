@@ -16,7 +16,6 @@ export class LogInFormComponent implements OnInit {
     @Optional() private readonly activeModal: NgbActiveModal,
     private modalService: NgbModal
   ) {}
-
   ngOnInit(): void {}
 
   closeLogInForm() {

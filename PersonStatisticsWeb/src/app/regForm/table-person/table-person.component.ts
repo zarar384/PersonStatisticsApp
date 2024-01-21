@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
-import { Person } from 'src/app/model/person.model';
 import { MatDialog } from '@angular/material/dialog';
 import { PersonComponent } from '../person/person.component';
 import { MatTableDataSource } from '@angular/material/table';
-import { PersonService } from 'src/app/services/person.service';
 
 @Component({
   selector: 'app-table-person',
@@ -11,17 +9,17 @@ import { PersonService } from 'src/app/services/person.service';
   styleUrls: ['./table-person.component.css'],
 })
 export class TablePersonComponent {
-  persons: Person[] = [];
-  dataSource: MatTableDataSource<Person> = new MatTableDataSource<Person>([]);
+  // persons: Person[] = [];
+  // dataSource: MatTableDataSource<Person> = new MatTableDataSource<Person>([]);
   displayedColumns: string[] = ['id', 'name', 'mail', 'phone', 'sex', 'delete'];
-  constructor(private personService: PersonService, private dilog: MatDialog) {}
+  constructor( private dilog: MatDialog) {}
 
   ngOnInit(): void {
     this.loadPersons();
   }
 
   loadPersons() {
-    this.dataSource.data =this.personService.getData();
+    // this.dataSource.data =this.personService.getData();
   }
 
   openDilog() {
@@ -34,13 +32,13 @@ export class TablePersonComponent {
   }
 
   deletePerson(id: number) {
-    this.personService.delData(id).subscribe({
-      next: () => {
-        this.loadPersons();
-      },
-      error: (error) => {
-        console.error('There was an error!', error);
-      },
-    });
+    // this.personService.delData(id).subscribe({
+    //   next: () => {
+    //     this.loadPersons();
+    //   },
+    //   error: (error) => {
+    //     console.error('There was an error!', error);
+    //   },
+    // });
   }
 }

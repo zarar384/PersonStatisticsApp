@@ -5,6 +5,7 @@ import {
   NgbModalRef,
 } from '@ng-bootstrap/ng-bootstrap';
 import { LogInFormComponent } from '../log-in-form/log-in-form.component';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -16,6 +17,7 @@ export class SignUpFormComponent {
     @Optional() private readonly activeModal: NgbActiveModal,
     private modalService: NgbModal
   ) {}
+  signUpForm: FormGroup = new FormGroup({});
 
   closeSignInForm() {
     if (this.activeModal) {
