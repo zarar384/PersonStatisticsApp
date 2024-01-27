@@ -2,22 +2,25 @@
     <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">Sign Up</h4>
-            <button type="button" class="close" aria-labelKey="Close" (click)="closeSignInForm()">
+            <button type="button" class="close" aria-labelKey="Close" (click)="close()">
                 <span aria-hidden="true" class="close-text">&times;</span>
             </button>
         </div>
         <div class="modal-body">
-            <form (ngSubmit)="closeSignInForm()">
+            <form (ngSubmit)="register()">
                 <app-text-input [formControl]="$any(signUpForm.controls['username'])"
                     [labelKey]="'Username'"></app-text-input>
-                <app-text-input [formControl]="$any(signUpForm.controls['nickname'])"
-                    [labelKey]="'Nickname'"></app-text-input>
-                <app-text-input [formControl]="$any(signUpForm.controls['dateOfBirth'])"
-                    [labelKey]="'DateOfBirth'"></app-text-input>
+                <!-- <app-text-input [formControl]="$any(signUpForm.controls['nickname'])"
+                    [labelKey]="'Nickname'"></app-text-input> -->
+                <!-- <app-text-input [formControl]="$any(signUpForm.controls['dateOfBirth'])"
+                    [labelKey]="'DateOfBirth'"></app-text-input> -->
                 <app-text-input [formControl]="$any(signUpForm.controls['password'])"
                     [labelKey]="'Password'"></app-text-input>
                 <app-text-input [formControl]="$any(signUpForm.controls['confirmPassword'])"
                     [labelKey]="'ConfirmPassword'"></app-text-input>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                </div>
             </form>
             <div class="sign-up">
                 <p>Already have an account? <a (click)="openLogInForm()">Login here</a></p>

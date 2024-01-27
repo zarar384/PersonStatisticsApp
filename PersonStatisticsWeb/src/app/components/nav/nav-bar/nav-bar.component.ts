@@ -15,7 +15,9 @@ export class NavBarComponent implements OnInit {
   constructor(
     private modalService: NgbModal,
     private languageService: LanguageService
-  ) {}
+  ) {
+    languageService.setDefaultLaguage();
+  }
 
   ngOnInit(): void {}
 

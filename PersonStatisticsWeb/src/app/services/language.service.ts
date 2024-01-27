@@ -11,6 +11,10 @@ export class LanguageService {
     return this.translate.currentLang;
   }
 
+  setDefaultLaguage() {
+    this.translate.setDefaultLang('en');
+  }
+
   setLanguage(language: string) {
     if (!this.translate.langs.includes(language)) {
       throw new Error(`Language ${language} does not exists.`);

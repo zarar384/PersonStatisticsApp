@@ -10,7 +10,8 @@ body {
 
 .modal-body .sign-up,
 .modal-body form .form-group,
-.modal-body form .form-group button {
+.modal-body form .form-group .form-control,
+.modal-body form button {
   width: 100%;
   padding: 8px;
   border-radius: 4px;

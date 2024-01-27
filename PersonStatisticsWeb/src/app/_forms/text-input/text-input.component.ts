@@ -27,7 +27,7 @@ export class TextInputComponent implements ControlValueAccessor {
     return this.ngControl.control as FormControl;
   }
 
-  get label(): string{
+  get label(): string {
     return this.language.toText(this.labelKey);
   }
 }

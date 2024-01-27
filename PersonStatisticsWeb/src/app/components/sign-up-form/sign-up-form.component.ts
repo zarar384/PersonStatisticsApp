@@ -1,32 +1,90 @@
-import { Component, Optional } from '@angular/core';
+import { Component, OnInit, Optional } from '@angular/core';
 import {
   NgbActiveModal,
   NgbModal,
   NgbModalRef,
 } from '@ng-bootstrap/ng-bootstrap';
 import { LogInFormComponent } from '../log-in-form/log-in-form.component';
-import { FormGroup } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ValidatorFn,
+  Validators,
+} from '@angular/forms';
+import { AccountService } from 'src/app/services/account.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-sign-up-form',
   templateUrl: './sign-up-form.component.html',
   styleUrls: ['./sign-up-form.component.css'],
 })
-export class SignUpFormComponent {
+export class SignUpFormComponent implements OnInit {
+  signUpForm: FormGroup = new FormGroup({});
+  validationError: string[] | undefined;
+
   constructor(
     @Optional() private readonly activeModal: NgbActiveModal,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private fb: FormBuilder,
+    private accountService: AccountService
   ) {}
-  signUpForm: FormGroup = new FormGroup({});
+  ngOnInit(): void {
+    this.inicializeForm();
+  }
 
-  closeSignInForm() {
+  inicializeForm() {
+    this.signUpForm = this.fb.group({
+      username: ['', Validators.required],
+      // nickname: ['', Validators.required],
+      // dateOfBirth: ['', Validators.required],
+      password: [
+        '',
+        [Validators.required, Validators.minLength(5), Validators.maxLength(8)],
+      ],
+      confirmPassword: [
+        '',
+        [Validators.required, this.matchValues('password')],
+      ],
+    });
+  }
+
+  matchValues(matchTo: string): ValidatorFn {
+    return (control: AbstractControl) => {
+      const currentControlValue = control.value;
+      const parentControlValue = control.parent?.get(matchTo)?.value;
+
+      return currentControlValue === parentControlValue
+        ? null
+        : { notMathing: true };
+    };
+  }
+
+  close() {
     if (this.activeModal) {
       this.activeModal.close();
     }
   }
 
+  register() {
+    const value = this.signUpForm.value;
+    this.accountService.register(value).subscribe(
+      (resp) => {
+        console.log(resp);
+        if (this.activeModal) {
+          this.activeModal.close();
+        }
+      },
+      (err) => {
+        console.log(err);
+        this.validationError == err;
+      }
+    );
+  }
+
   openLogInForm() {
-    this.closeSignInForm();
+    this.close();
 
     const modal: NgbModalRef = this.modalService.open(LogInFormComponent);
 
