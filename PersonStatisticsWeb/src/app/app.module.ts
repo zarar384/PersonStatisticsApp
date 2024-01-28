@@ -4,6 +4,8 @@ import { AppComponent } from './app.component';
 import { PersonComponent } from './regForm/person/person.component';
 import {
   NgbAccordionButton,
+  NgbAlert,
+  NgbAlertModule,
   NgbCollapseModule,
   NgbModule,
 } from '@ng-bootstrap/ng-bootstrap';
@@ -25,6 +27,8 @@ import { SignUpFormComponent } from './components/sign-up-form/sign-up-form.comp
 import { LogInFormComponent } from './components/log-in-form/log-in-form.component';
 import { NavBarComponent } from './components/nav/nav-bar/nav-bar.component';
 import { NavSidebarComponent } from './components/nav/nav-sidebar/nav-sidebar.component';
+import { CommonModule } from '@angular/common';
+import { ToastComponent } from './_forms/toast/toast.component';
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -39,11 +43,13 @@ export function httpLoaderFactory(http: HttpClient) {
     TablePersonComponent,
     TextfieldChangedDirective,
     TextInputComponent,
+    ToastComponent,
     LogInFormComponent,
     SignUpFormComponent,
     NavSidebarComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     NgbModule,
     ReactiveFormsModule,

@@ -1,0 +1,5 @@
+<div *ngFor="let alert of alerts$ | async">
+    <ngb-toast [class]="alertClass(alert)" [autohide]="alert.autoClose" [delay]="3000" (hidden)="removeAlert(alert)">
+        {{alert.message}}
+    </ngb-toast>
+</div>

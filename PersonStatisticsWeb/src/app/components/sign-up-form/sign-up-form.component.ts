@@ -13,7 +13,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { AccountService } from 'src/app/services/account.service';
-import { error } from 'console';
+import { ToastService } from 'src/app/services/toast.service';
+import { ToastType } from 'src/enum/toastType';
 
 @Component({
   selector: 'app-sign-up-form',
@@ -28,7 +29,8 @@ export class SignUpFormComponent implements OnInit {
     @Optional() private readonly activeModal: NgbActiveModal,
     private modalService: NgbModal,
     private fb: FormBuilder,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private ToastService: ToastService
   ) {}
   ngOnInit(): void {
     this.inicializeForm();
@@ -70,14 +72,18 @@ export class SignUpFormComponent implements OnInit {
   register() {
     const value = this.signUpForm.value;
     this.accountService.register(value).subscribe(
-      (resp) => {
-        console.log(resp);
+      (resp: any) => {
         if (this.activeModal) {
+          this.ToastService.addAlert(
+            ToastType.Success,
+            `Welcome ${resp?.username}`,
+            true
+          );
           this.activeModal.close();
         }
       },
       (err) => {
-        console.log(err);
+        this.ToastService.addAlert(ToastType.Error, err, true);
         this.validationError == err;
       }
     );

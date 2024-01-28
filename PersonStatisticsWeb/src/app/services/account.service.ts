@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
-import { HtmlParser } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs/operators';
-import { Account } from '../model/account';
+import { catchError, map, tap } from 'rxjs/operators';
+import { User } from '../model/user';
+import { throwError } from 'rxjs';
+import { ToastService } from './toast.service';
+import { ToastType } from 'src/enum/toastType';
 
 @Injectable({
   providedIn: 'root',
@@ -11,11 +13,11 @@ import { Account } from '../model/account';
 export class AccountService {
   baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private ToastService: ToastService) {}
 
   login(model: any) {
     return this.http.post(this.baseUrl + 'account/login', model).pipe(
-      map((response: Account) => {
+      map((response: User) => {
         const user = response;
         if (user) {
         }
@@ -24,12 +26,32 @@ export class AccountService {
   }
 
   register(model: any) {
-    console.log(this.baseUrl);
     return this.http.post(this.baseUrl + 'account/register', model).pipe(
-      map((user: Account) => {
-        if (user) {
-          console.log(user);
+      map((resp: any) => {
+        console.log('bib');
+        if (Array.isArray(resp)) {
+          resp.forEach((error) => {
+            console.log(error);
+            this.ToastService.addAlert(
+              ToastType.Error,
+              error.description,
+              true
+            );
+          });
+        } else if (resp as User) {
+          console.log(resp);
         }
+      }),
+      catchError((error) => {
+        if (Array.isArray(error.error)) {
+          error.error.forEach((err) => {
+            console.log(err);
+            this.ToastService.addAlert(ToastType.Error, err.description, true);
+          });
+        }
+
+        this.ToastService.addAlert(ToastType.Error, error.message, true);
+        return throwError(error);
       })
     );
   }
