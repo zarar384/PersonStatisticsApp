@@ -12,5 +12,5 @@ public class BoxItem : BaseModel
     public double Rating { get; set; }
 
     public Box Box { get; set; }
-    public ICollection<ItemRating> Ratings { get; set; }
+    //public ICollection<ItemRating> Ratings { get; set; }
 }

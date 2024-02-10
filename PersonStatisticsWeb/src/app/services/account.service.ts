@@ -13,14 +13,28 @@ import { ToastType } from 'src/enum/toastType';
 export class AccountService {
   baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient, private ToastService: ToastService) {}
+  constructor(private http: HttpClient, private toastService: ToastService) {}
 
   login(model: any) {
     return this.http.post(this.baseUrl + 'account/login', model).pipe(
       map((response: User) => {
         const user = response;
-        if (user) {
+        if (user as User) {
+          this.toastService.addAlert(
+            ToastType.Success,
+            `Hello ${user.username}!`,
+            true
+          );
         }
+      }),
+      catchError((error) => {
+        if (Array.isArray(error.error)) {
+          error.error.forEach((err) => {
+            this.toastService.addAlert(ToastType.Error, err.description, true);
+          });
+        }
+        this.toastService.addAlert(ToastType.Error, error.message, true);
+        return throwError(error);
       })
     );
   }
@@ -28,29 +42,29 @@ export class AccountService {
   register(model: any) {
     return this.http.post(this.baseUrl + 'account/register', model).pipe(
       map((resp: any) => {
-        console.log('bib');
         if (Array.isArray(resp)) {
           resp.forEach((error) => {
-            console.log(error);
-            this.ToastService.addAlert(
+            this.toastService.addAlert(
               ToastType.Error,
               error.description,
               true
             );
           });
         } else if (resp as User) {
-          console.log(resp);
+          this.toastService.addAlert(
+            ToastType.Success,
+            `Accoun ${resp.username} has been created!`,
+            true
+          );
         }
       }),
       catchError((error) => {
         if (Array.isArray(error.error)) {
           error.error.forEach((err) => {
-            console.log(err);
-            this.ToastService.addAlert(ToastType.Error, err.description, true);
+            this.toastService.addAlert(ToastType.Error, err.description, true);
           });
         }
-
-        this.ToastService.addAlert(ToastType.Error, error.message, true);
+        this.toastService.addAlert(ToastType.Error, error.message, true);
         return throwError(error);
       })
     );

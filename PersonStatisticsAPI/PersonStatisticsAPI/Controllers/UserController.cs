@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using MediaBrowser.Model.Dto;
 using Microsoft.AspNetCore.Mvc;
 using PersonStatisticsAPI.Business.Interfaces;
+using PersonStatisticsAPI.DataModels.DTOs;
 using PersonStatisticsAPI.Extensions;
-using PersonStatisticsAPI.Models;
 using PersonStatisticsAPI.Models;
 using System.Net;
 

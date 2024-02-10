@@ -10,14 +10,14 @@
             </button>
         </div>
         <div class="modal-body">
-            <form (ngSubmit)="closeLogInForm()">
+            <form #loginForm autocomplete="off" role="submit" (ngSubmit)="login()">
                 <div class="form-group">
-                    <input type="text" class="form-control" name="username" placeholder="Username" required
-                        autocomplete="current-username" #usernameInput (input)="0">
+                    <input type="text" class="form-control" [(ngModel)]="model.username" name="username"
+                        placeholder="Username" required autocomplete="current-username" #usernameInput (input)="0">
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password" required
-                        autocomplete="current-password" #passwordInput (input)="0">
+                    <input type="password" class="form-control" [(ngModel)]="model.password" name="password"
+                        placeholder="Password" required autocomplete="current-password" #passwordInput (input)="0">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block"

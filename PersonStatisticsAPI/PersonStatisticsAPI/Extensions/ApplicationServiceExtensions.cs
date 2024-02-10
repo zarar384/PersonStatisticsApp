@@ -7,6 +7,7 @@ using PersonStatisticsAPI.Data.Db;
 using PersonStatisticsAPI.Data.Interfaces;
 using PersonStatisticsAPI.Helpers;
 using PersonStatisticsAPI.Interfaces;
+using PersonStatisticsAPI.Models;
 using PersonStatisticsAPI.Services;
 
 namespace PersonStatisticsAPI.Extensions

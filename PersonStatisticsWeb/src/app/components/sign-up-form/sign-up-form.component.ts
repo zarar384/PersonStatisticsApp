@@ -74,16 +74,10 @@ export class SignUpFormComponent implements OnInit {
     this.accountService.register(value).subscribe(
       (resp: any) => {
         if (this.activeModal) {
-          this.ToastService.addAlert(
-            ToastType.Success,
-            `Welcome ${resp?.username}`,
-            true
-          );
           this.activeModal.close();
         }
       },
       (err) => {
-        this.ToastService.addAlert(ToastType.Error, err, true);
         this.validationError == err;
       }
     );

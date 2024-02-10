@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using PersonStatisticsAPI.Business.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using PersonStatisticsAPI.DataModels.DTOs;
 using PersonStatisticsAPI.Interfaces;
 using PersonStatisticsAPI.Models;
-using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -12,11 +12,12 @@ namespace PersonStatisticsAPI.Controllers
 {
     public class AccountController : BaseApiController
     {
-        private readonly IUserManager _userManager;
+        // private readonly IUserManager _userManager;
         private readonly IMapper _mapper;
         private readonly ITokenService _tokenService;
+        private readonly UserManager<User> _userManager;
 
-        public AccountController(IUserManager userManager, IMapper mapper, ITokenService tokenService)
+        public AccountController(UserManager<User> userManager, IMapper mapper, ITokenService tokenService)
         {
             _userManager = userManager;
             _mapper = mapper;
@@ -24,58 +25,66 @@ namespace PersonStatisticsAPI.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterDto user)
+        public async Task<IActionResult> Register(RegisterDto registerDto)
         {
-            HttpModelResult result = new HttpModelResult();
-            result = await _userManager.IsExists(user);
-
-            if (result.HttpStatus == HttpStatusCode.BadRequest)
-            {
+            if (await UserExists(registerDto.UserName))
                 return BadRequest("Username is taken");
-            }
 
-            result = await _userManager.Add(user);
-            if (result.HttpStatus == HttpStatusCode.Created)
+            var user = _mapper.Map<User>(registerDto);
+            var result = await _userManager.CreateAsync(user, registerDto.Password);
+            if (result.Succeeded)
             {
-                var userModel = _mapper.Map<BaseModel, User>(result.Model);
-                var userDto = _mapper.Map<User, UserDto>(userModel);
-                userDto.Token = _tokenService.CreateToken(userModel);
+                var userDto = _mapper.Map<User, UserDto>(user);
+                var roleResult = _userManager.AddToRoleAsync(user, "Member");
+
+                if (!roleResult.IsCompleted) return BadRequest(result.Errors);
+
+                userDto.Token = _tokenService.CreateToken(user);
 
                 return new CreatedResult(string.Format("/api/register/{0}",
-                                         result.Model.Id),
+                                         userDto.Id),
                                          userDto);
             }
 
-            return new StatusCodeResult((int)result.HttpStatus);
+            return BadRequest(result.Errors);
         }
 
         [HttpPost("login")]
         public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
         {
-            var userBase = await _userManager.Get(loginDto.Username);
+            var user = await _userManager.Users
+                .SingleOrDefaultAsync(x => x.UserName == loginDto.Username);
 
-            if (userBase.HttpStatus == HttpStatusCode.BadRequest) return Unauthorized("Invalid username");
+            if (user == null) return Unauthorized("Invalid username");
 
-            var user = _mapper.Map<User>(userBase.Model);
-            using var hmac = new HMACSHA512(user.PasswordSalt);
+            //using var hmac = new HMACSHA512(user.PasswordSalt);
 
-            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
+            //var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
 
-            for (int i = 0; i < computedHash.Length; i++)
-            {
-                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
-            }
+            var result = await _userManager.CheckPasswordAsync(user, loginDto.Password);
+
+            if (!result) return Unauthorized("Invalid password");
+
+            //for (int i = 0; i < computedHash.Length; i++)
+            //{
+            //    if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
+            //}
 
             var userDto = new UserDto
             {
                 Id = user.Id,
-                Username = user.Username,
+                Username = user.UserName,
                 Token = _tokenService.CreateToken(user),
             };
 
             return new CreatedResult(string.Format("/api/register/{0}",
                                      user.Id),
                                      userDto);
+        }
+
+        private async Task<bool> UserExists(string username)
+        {
+            return await _userManager.Users.AnyAsync(x => x.UserName == username);
         }
     }
 }

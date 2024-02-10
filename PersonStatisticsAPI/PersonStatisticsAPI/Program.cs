@@ -1,4 +1,3 @@
-using MediaBrowser.Model.Services;
 using Microsoft.OpenApi.Models;
 using PersonStatisticsAPI.Extensions;
 using PersonStatisticsAPI.Middleware;
@@ -27,6 +26,21 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
 });
 
+// using ServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
+// using (IServiceScope scope = serviceProvider.CreateScope())
+// {
+//     var services = scope.ServiceProvider;
+//     try
+//     {
+//         var dbContext = services.GetRequiredService<AppDbContext>();
+//         var userManager = services.GetRequiredService<UserManager<User>>();
+
+//     }
+//     catch (Exception ex)
+//     {
+
+//     }
+// }
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

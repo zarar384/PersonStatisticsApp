@@ -31,14 +31,14 @@ namespace PersonStatisticsAPI.Data
         public async Task<UserDto> GetMemberAsync(string username)
         {
             return await _context.Users
-                .Where(x => x.Username == username)
+                .Where(x => x.UserName == username)
                 .ProjectTo<UserDto>(_mapper.ConfigurationProvider)
                 .SingleOrDefaultAsync();
         }
 
         public async Task<User> GetUserAsync(string username)
         {
-            return await _context.Users.SingleOrDefaultAsync(x => x.Username == username);
+            return await _context.Users.SingleOrDefaultAsync(x => x.UserName == username);
             //return await user.ProjectTo<UserDto>(_mapper.ConfigurationProvider)
             //    .FirstOrDefaultAsync();
         }
@@ -49,21 +49,21 @@ namespace PersonStatisticsAPI.Data
 
             using var hmac = new HMACSHA512();
 
-            user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registrDto.Password));
-            user.PasswordSalt = hmac.Key;
+            //user.PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registrDto.Password));
+            //user.PasswordSalt = hmac.Key;
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
             return new UserDto
             {
-                Username = user.Username,
+                Username = user.UserName,
             };
         }
 
         public async Task<bool> UserExists(string username)
         {
-            return await _context.Users.AnyAsync(x => x.Username == username);
+            return await _context.Users.AnyAsync(x => x.UserName == username);
         }
 
     }

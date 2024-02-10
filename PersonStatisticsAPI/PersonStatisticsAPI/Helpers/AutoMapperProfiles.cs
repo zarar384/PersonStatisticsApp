@@ -12,7 +12,7 @@ namespace PersonStatisticsAPI.Helpers
             var mappingConfig = new MapperConfiguration(config =>
             {
                 config.CreateMap<BaseModel, BaseDto>().ReverseMap();
-                config.CreateMap<Box, BoxDto>().ForMember(dest => dest.OwnerUsername, opt => opt.MapFrom(src => src.Owner.Username))
+                config.CreateMap<Box, BoxDto>().ForMember(dest => dest.OwnerUsername, opt => opt.MapFrom(src => src.Owner.UserName))
                 .ForMember(dest => dest.CategoryName, opt => opt.MapFrom(src => src.Category.Name));
                 config.CreateMap<BoxDto, Box>();
                 config.CreateMap<RegisterDto, User>();

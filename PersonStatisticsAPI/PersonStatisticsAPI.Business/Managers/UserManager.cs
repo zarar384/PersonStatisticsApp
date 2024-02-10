@@ -29,7 +29,7 @@ namespace PersonStatisticsAPI.Business.Managers
 
                     var user = _mapper.Map<UserDto, User>(userDto);
                     result.HttpStatus = HttpStatusCode.Created;
-                    result.Model = user;
+                    //result.Model = user;
                 }
             }
             else
@@ -53,7 +53,7 @@ namespace PersonStatisticsAPI.Business.Managers
             else
             {
                 result.HttpStatus = HttpStatusCode.OK;
-                result.Model = _mapper.Map<User>(userDto);
+                //result.Model = _mapper.Map<User>(userDto);
             }
 
             return result;
@@ -71,7 +71,7 @@ namespace PersonStatisticsAPI.Business.Managers
             else
             {
                 result.HttpStatus = HttpStatusCode.OK;
-                result.Model = _mapper.Map<User>(user);
+                //result.Model = _mapper.Map<User>(user);
             }
 
             return result;
