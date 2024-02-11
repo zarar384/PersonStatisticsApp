@@ -1,6 +1,11 @@
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using PersonStatisticsAPI.Data.Db;
 using PersonStatisticsAPI.Extensions;
 using PersonStatisticsAPI.Middleware;
+using PersonStatisticsAPI.Models;
 using PersonStatisticsAPI.Models.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -26,21 +31,27 @@ builder.Services.AddSwaggerGen(c =>
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIv5", Version = "v1" });
 });
 
-// using ServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
-// using (IServiceScope scope = serviceProvider.CreateScope())
-// {
-//     var services = scope.ServiceProvider;
-//     try
-//     {
-//         var dbContext = services.GetRequiredService<AppDbContext>();
-//         var userManager = services.GetRequiredService<UserManager<User>>();
+using ServiceProvider serviceProvider = builder.Services.BuildServiceProvider();
+using (IServiceScope scope = serviceProvider.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var context = services.GetRequiredService<AppDbContext>();
+        var userManager = services.GetRequiredService<UserManager<User>>();
+        var roleManager = services.GetRequiredService<RoleManager<Role>>();
 
-//     }
-//     catch (Exception ex)
-//     {
+        await context.Database.MigrateAsync();
+        //await context.Database.ExecuteSqlRawAsync("TRUNCATE TABLE [Connections]");
+        await Seed.SeedUsers(userManager, roleManager);
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred during migration");
+    }
+}
 
-//     }
-// }
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using PersonStatisticsAPI.Data.Db;
 using PersonStatisticsAPI.Models;
@@ -14,6 +15,8 @@ namespace PersonStatisticsAPI.Extensions
             {
                 opt.Password.RequireNonAlphanumeric = false;
             })
+            .AddRoles<Role>()
+            .AddRoleManager<RoleManager<Role>>()
             .AddEntityFrameworkStores<AppDbContext>();
 
             var token = config["TokenKey"];
@@ -28,6 +31,13 @@ namespace PersonStatisticsAPI.Extensions
                         ValidateAudience = false,
                     };
                 });
+
+            services.AddAuthorization(opt =>
+            {
+                opt.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+                opt.AddPolicy("RequireModerateRole", policy => policy.RequireRole("Admin", "Moderator"));
+            });
+
             return services;
         }
     }

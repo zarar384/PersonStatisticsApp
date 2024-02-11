@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { map, scan } from 'rxjs/operators';
 import { Toast } from 'src/app/model/toast';
 import { ToastService } from 'src/app/services/toast.service';
@@ -17,14 +17,15 @@ import { ToastType } from 'src/enum/toastType';
 export class ToastComponent implements OnInit {
   alerts$: Observable<Toast[]>;
 
-  constructor(private ToastService: ToastService) {}
+  constructor(private toastService: ToastService) {}
 
   ngOnInit(): void {
     this.alert();
+    this.clear();
   }
 
   alert() {
-    this.alerts$ = this.ToastService.getAlert().pipe(
+    this.alerts$ = this.toastService.getAlert().pipe(
       scan((acc: Toast[], value: Toast) => {
         if (value) {
           acc.push(value);
@@ -40,6 +41,10 @@ export class ToastComponent implements OnInit {
     this.alerts$ = this.alerts$.pipe(
       map((alerts) => alerts.filter((alert) => alert !== currentAlert))
     );
+  }
+
+  clear() {
+    this.toastService.clear();
   }
 
   alertClass(alert: Toast) {
