@@ -2,6 +2,8 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { LogInFormComponent } from '../../log-in-form/log-in-form.component';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { LanguageService } from 'src/app/services/language.service';
+import { AccountService } from 'src/app/services/account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -9,12 +11,13 @@ import { LanguageService } from 'src/app/services/language.service';
   styleUrls: ['./nav-bar.component.css'],
 })
 export class NavBarComponent implements OnInit {
-  isLoggedIn: boolean = false;
   isCollapsed: boolean = true;
 
   constructor(
     private modalService: NgbModal,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    public accountService: AccountService,
+    private router: Router
   ) {
     languageService.setDefaultLaguage();
   }
@@ -38,6 +41,11 @@ export class NavBarComponent implements OnInit {
         console.log('Are you sure you want to close the LogInForm component?');
       }
     );
+  }
+
+  logout() {
+    this.accountService.logout();
+    this.router.navigateByUrl('/');
   }
 
   toggleSidebar(): void {

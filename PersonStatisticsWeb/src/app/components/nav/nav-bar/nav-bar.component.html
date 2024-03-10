@@ -4,7 +4,7 @@
         <i class="bi bi-layout-sidebar"></i>
     </button>
 
-    <ng-container *ngIf="!isLoggedIn; else userBlockTemplate">
+    <ng-container *ngIf="!(accountService.currentUser$ | async); else userBlockTemplate">
         <div class="d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <button id="button-log-in" type="button" class="btn btn-primary" (click)="openLogInForm()">Log
                 in</button>
@@ -20,7 +20,7 @@
                 <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu">
                     <li role="menuitem"><a class="dropdown-item" routerLink="/member/edit">Edit profile</a></li>
                     <li class="divider dropdown-divider"></li>
-                    <li role="menuitem"><a class="dropdown-item">Logout</a></li>
+                    <li role="menuitem"><a class="dropdown-item" (click)="logout()">Logout</a></li>
                 </ul>
             </li>
         </div>
