@@ -34,15 +34,6 @@ export class AccountService {
             true
           );
         }
-      }),
-      catchError((error) => {
-        if (Array.isArray(error.error)) {
-          error.error.forEach((err) => {
-            this.toastService.addAlert(ToastType.Error, err.description, true);
-          });
-        }
-        this.toastService.addAlert(ToastType.Error, error.message, true);
-        return throwError(error);
       })
     );
   }
@@ -50,15 +41,7 @@ export class AccountService {
   register(model: any) {
     return this.http.post(this.baseUrl + 'account/register', model).pipe(
       map((resp: any) => {
-        if (Array.isArray(resp)) {
-          resp.forEach((error) => {
-            this.toastService.addAlert(
-              ToastType.Error,
-              error.description,
-              true
-            );
-          });
-        } else if (resp as User) {
+        if (resp as User) {
           this.setCurrentUser(resp);
           this.toastService.addAlert(
             ToastType.Success,
@@ -66,15 +49,6 @@ export class AccountService {
             true
           );
         }
-      }),
-      catchError((error) => {
-        if (Array.isArray(error.error)) {
-          error.error.forEach((err) => {
-            this.toastService.addAlert(ToastType.Error, err.description, true);
-          });
-        }
-        this.toastService.addAlert(ToastType.Error, error.message, true);
-        return throwError(error);
       })
     );
   }

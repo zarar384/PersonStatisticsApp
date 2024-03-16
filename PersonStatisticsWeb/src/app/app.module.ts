@@ -1,17 +1,19 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { PersonComponent } from './regForm/person/person.component';
 import {
   NgbAccordionButton,
-  NgbAlert,
-  NgbAlertModule,
   NgbCollapseModule,
   NgbModule,
 } from '@ng-bootstrap/ng-bootstrap';
 import { AdvanceComponent } from './regForm/advance/advance.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { TablePersonComponent } from './regForm/table-person/table-person.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +31,8 @@ import { NavBarComponent } from './components/nav/nav-bar/nav-bar.component';
 import { NavSidebarComponent } from './components/nav/nav-sidebar/nav-sidebar.component';
 import { CommonModule } from '@angular/common';
 import { ToastComponent } from './_forms/toast/toast.component';
+import { GlobalErrorHandlerService } from './services/global-error-handler.service';
+import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -71,7 +75,10 @@ export function httpLoaderFactory(http: HttpClient) {
       },
     }),
   ],
-  providers: [],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

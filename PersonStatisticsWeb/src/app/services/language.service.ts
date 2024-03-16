@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { KeyObject } from 'crypto';
 
 @Injectable({
   providedIn: 'root',
@@ -23,7 +24,7 @@ export class LanguageService {
   }
 
   toText(key: string): string {
-    return this.translate.instant(key);
+    return this.translate?.instant([key]) || '';
   }
 
   isLanguageSupported(language: string): boolean {
