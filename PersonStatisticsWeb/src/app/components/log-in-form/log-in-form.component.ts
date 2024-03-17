@@ -6,6 +6,7 @@ import {
 } from '@ng-bootstrap/ng-bootstrap';
 import { SignUpFormComponent } from '../sign-up-form/sign-up-form.component';
 import { AccountService } from 'src/app/services/account.service';
+import { error } from 'console';
 
 @Component({
   selector: 'app-log-in-form',
@@ -30,11 +31,13 @@ export class LogInFormComponent implements OnInit {
   }
 
   login() {
-    this.accountService.login(this.model).subscribe((resp) => {
-      if (this.activeModal) {
-        this.closeLogInForm();
-        this.model = {};
-      }
+    this.accountService.login(this.model).subscribe({
+      next: (response) => {
+        if (this.activeModal) {
+          this.closeLogInForm();
+          this.model = {};
+        }
+      },
     });
   }
 

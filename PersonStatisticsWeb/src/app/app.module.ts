@@ -76,8 +76,8 @@ export function httpLoaderFactory(http: HttpClient) {
     }),
   ],
   providers: [
-    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
   ],
   bootstrap: [AppComponent],
 })

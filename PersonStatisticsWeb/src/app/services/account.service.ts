@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { catchError, map } from 'rxjs/operators';
 import { User } from '../model/user';
-import { Observable, ReplaySubject, throwError } from 'rxjs';
+import { Observable, ReplaySubject, of, throwError } from 'rxjs';
 import { ToastService } from './toast.service';
 import { ToastType } from 'src/enum/toastType';
 

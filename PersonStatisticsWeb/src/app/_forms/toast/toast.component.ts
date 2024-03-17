@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
-import { map, scan } from 'rxjs/operators';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
+import { Observable, Subject, Subscription, of } from 'rxjs';
+import { map, scan, switchMap } from 'rxjs/operators';
 import { Toast } from 'src/app/model/toast';
 import { ToastService } from 'src/app/services/toast.service';
 import { ToastType } from 'src/enum/toastType';
@@ -14,27 +19,31 @@ import { ToastType } from 'src/enum/toastType';
     style: 'z-index: 1200',
   },
 })
-export class ToastComponent implements OnInit {
+export class ToastComponent implements AfterViewInit {
   alerts$: Observable<Toast[]>;
+  private subscription: Subscription;
 
   constructor(private toastService: ToastService) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.alert();
-    this.clear();
+    if (this.subscription) {
+      this.clear();
+    }
   }
 
   alert() {
     this.alerts$ = this.toastService.getAlert().pipe(
-      scan((acc: Toast[], value: Toast) => {
-        if (value) {
-          acc.push(value);
+      switchMap((alert) => {
+        if (alert) {
+          return of([alert]);
         } else {
-          acc = [];
+          return of([]);
         }
-        return acc;
-      }, [])
+      })
     );
+
+    this.subscription = this.alerts$.subscribe((alerts) => {});
   }
 
   removeAlert(currentAlert: Toast) {
@@ -45,6 +54,7 @@ export class ToastComponent implements OnInit {
 
   clear() {
     this.toastService.clear();
+    this.subscription.unsubscribe();
   }
 
   alertClass(alert: Toast) {
