@@ -10,6 +10,19 @@
             "request": "launch",
             "url": "http://localhost:4200/",
             "webRoot": "${workspaceFolder}/PersonStatisticsWeb"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Telegram Bot with Nodemon",
+            "runtimeExecutable": "nodemon",
+            "program": "${workspaceFolder}/bot.js",
+            "restart": true,
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "runtimeArgs": [
+                "--inspect-brk"
+            ],
         }
     ]
 }

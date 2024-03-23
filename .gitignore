@@ -84,5 +84,7 @@ PersonStatisticsAPI/.vs/
 PersonStatisticsWeb/.angular/
 PersonStatisticsAPI/PersonStatisticsAPI/obj/
 PersonStatisticsWeb/node_modules/
+PersonStatisticsTelegramBot/node_modules/
+PersonStatisticsTelegramBot/.env.development
 PersonStatisticsAPI/PersonStatisticsAPI.Data/Migrations/
 PersonStatisticsAPI/PersonStatisticsAPI/bin/
