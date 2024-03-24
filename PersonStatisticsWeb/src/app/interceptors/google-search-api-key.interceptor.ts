@@ -18,13 +18,17 @@ export class GoogleSearchApiKeyInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    const apiReq = req.clone({
-      setParams: {
-        key: this.apiKey,
-        cx: this.cxID,
-      },
-    });
+    if (req.headers.has('google-search-img')) {
+      const apiReq = req.clone({
+        setParams: {
+          key: this.apiKey,
+          cx: this.cxID,
+        },
+      });
 
-    return next.handle(apiReq);
+      return next.handle(apiReq);
+    }
+
+    return next.handle(req);
   }
 }
