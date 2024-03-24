@@ -88,3 +88,4 @@ PersonStatisticsTelegramBot/node_modules/
 PersonStatisticsTelegramBot/.env.development
 PersonStatisticsAPI/PersonStatisticsAPI.Data/Migrations/
 PersonStatisticsAPI/PersonStatisticsAPI/bin/
+PersonStatisticsWeb/src/environments/environment.dev.ts

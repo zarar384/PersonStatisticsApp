@@ -33,6 +33,8 @@ import { CommonModule } from '@angular/common';
 import { ToastComponent } from './_forms/toast/toast.component';
 import { GlobalErrorHandlerService } from './services/global-error-handler.service';
 import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
+import { GoogleSearchApiKeyInterceptor } from './interceptors/google-search-api-key.interceptor';
+import { CacheInterceptor } from './interceptors/cache.interceptor';
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -78,6 +80,12 @@ export function httpLoaderFactory(http: HttpClient) {
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     { provide: ErrorHandler, useClass: GlobalErrorHandlerService },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GoogleSearchApiKeyInterceptor,
+      multi: true,
+    },
+    { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
 })
