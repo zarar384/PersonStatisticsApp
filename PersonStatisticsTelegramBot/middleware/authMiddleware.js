@@ -1,5 +1,5 @@
 const { Telegraf, Scenes, Composer } = require("telegraf");
-const authScene = require("../menu/authScene");
+const authScene = require("../scenes/authScene");
 const accountService = require("../services/accountService");
 const { firstValueFrom } = require("rxjs");
 
@@ -17,8 +17,10 @@ authStage.command("done", async (ctx) => {
     try {
       const resp = await firstValueFrom(accountService.register(userData));
       ctx.reply(`Authorization successful ${resp}.`);
+      ctx.session.isLoggedIn = true;
     } catch (err) {
       ctx.reply(`Error: ${err}`);
+      ctx.session.isLoggedIn = false;
     }
 
     //TODO: open next menu
