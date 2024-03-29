@@ -1,7 +1,5 @@
 const { Telegraf, session, Markup } = require("telegraf");
-const {
-  setupAuthMiddleware,
-} = require("../PersonStatisticsTelegramBot/middleware/authMiddleware");
+const { authMiddleware, authStage } = require("./middleware/authMiddleware");
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
@@ -23,6 +21,6 @@ bot.start((ctx) => {
   ctx.reply("Welcome.", createMenu());
 });
 
-setupAuthMiddleware(bot);
+bot.use(authMiddleware.middleware());
 
 bot.launch();

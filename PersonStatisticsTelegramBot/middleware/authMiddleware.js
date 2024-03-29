@@ -1,33 +1,33 @@
-const { Telegraf, Scenes } = require("telegraf");
+const { Telegraf, Scenes, Composer } = require("telegraf");
 const authScene = require("../menu/authScene");
 const accountService = require("../services/accountService");
 const { firstValueFrom } = require("rxjs");
 
-const stage = new Scenes.Stage([authScene], { default: "auth" });
+const authStage = new Scenes.Stage([authScene], { default: "auth" });
 
-function setupAuthMiddleware(bot) {
-  stage.command("done", async (ctx) => {
-    if (ctx.session?.doneAuth || false) {
-      const userData = {
-        login: ctx.session.login,
-        password: ctx.session.password,
-      };
+const authMiddleware = new Composer();
 
-      try {
-        const resp = await firstValueFrom(accountService.register(userData));
-        ctx.reply(`Authorization successful ${resp}.`);
-      } catch (err) {
-        ctx.reply(`Error: ${err}`);
-      }
+authStage.command("done", async (ctx) => {
+  if (ctx.session?.doneAuth || false) {
+    const userData = {
+      login: ctx.session.login,
+      password: ctx.session.password,
+    };
 
-      //TODO: open next menu
-      ctx.session = {};
+    try {
+      const resp = await firstValueFrom(accountService.register(userData));
+      ctx.reply(`Authorization successful ${resp}.`);
+    } catch (err) {
+      ctx.reply(`Error: ${err}`);
     }
-  });
 
-  bot.use(stage.middleware());
+    //TODO: open next menu
+    ctx.session = {};
+  }
+});
 
-  bot.action("auth", (ctx) => ctx.scene.enter("auth"));
-}
+authMiddleware.use(authStage.middleware());
 
-module.exports = { setupAuthMiddleware };
+authMiddleware.action("auth", (ctx) => ctx.scene.enter("auth"));
+
+module.exports = { authMiddleware };
