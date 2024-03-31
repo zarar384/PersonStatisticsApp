@@ -10,18 +10,20 @@ const authMiddleware = new Composer();
 authStage.command("done", async (ctx) => {
   if (ctx.session?.doneAuth || false) {
     const userData = {
-      login: ctx.session.login,
+      userName: ctx.session.login,
       password: ctx.session.password,
     };
 
-    try {
-      const resp = await firstValueFrom(accountService.register(userData));
-      ctx.reply(`Authorization successful ${resp}.`);
-      ctx.session.isLoggedIn = true;
-    } catch (err) {
-      ctx.reply(`Error: ${err}`);
-      ctx.session.isLoggedIn = false;
-    }
+    accountService.register(userData).subscribe(
+      (data) => {
+        ctx.reply(`Authorization successful ${data.userNamer}.`);
+        ctx.session.isLoggedIn = true;
+      },
+      (error) => {
+        ctx.reply(`Error: ${error}`);
+        ctx.session.isLoggedIn = false;
+      }
+    );
 
     //TODO: open next menu
     ctx.session = {};

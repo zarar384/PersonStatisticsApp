@@ -1,16 +1,19 @@
 const environment = require("../environments/environment");
 const { from, map, catchError } = require("rxjs");
 
-const axios = require("axios");
+const axiosConfig = require("../utils/axiosConfig");
 
 const baseUrl = environment.apiUrl;
 
 const accountService = {
   register: (userData) => {
-    return from(axios.post(baseUrl + "account/register", userData)).pipe(
+    return from(axiosConfig.post(baseUrl + "Account/register", userData)).pipe(
       map((resp) => resp.data),
       catchError((err) => {
-        throw err;
+        const errors = Array.isArray(err)
+          ? err.map((e) => e.description).join("\n")
+          : err.description;
+        throw errors;
       })
     );
   },

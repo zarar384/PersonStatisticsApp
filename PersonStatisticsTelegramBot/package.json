@@ -3,14 +3,15 @@
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.0",
     "rxjs": "^7.8.1",
     "telegraf": "^4.16.3",
     "telegraf-session-local": "^2.1.1"
   },
   "scripts": {
     "_comment_NODE_ENV": "Replace 'development' with 'example' or your own .env file.",
-    "start-bot": "cross-env NODE_ENV=development nodemon bot.js",
-    "debug": "cross-env NODE_ENV=development nodemon --inspect-brk bot.js"
+    "start-bot": "cross-env NODE_ENV=development nodemon --env-file=.env.development  bot.js",
+    "debug": "cross-env NODE_ENV=development nodemon --env-file=.env.development --inspect-brk bot.js"
   },
   "devDependencies": {
     "cross-env": "^7.0.3"
